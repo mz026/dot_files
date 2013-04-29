@@ -124,12 +124,15 @@ vmap <leader>s :sort /\%V/<CR>
 " 80 column highlight
 if v:version >= 703
   set colorcolumn=85
-  :hi ColorColumn ctermfg=black
+  :hi ColorColumn ctermfg=gray ctermbg=black
 endif
 
 "for vsp 80 column width
 set winwidth=90
 set previewheight=30
+
+" ========== number line background ==============
+highlight LineNr ctermfg=darkgray ctermbg=black
 
 " =========== folding methods ==============
 " fold highlight
@@ -193,7 +196,7 @@ vmap <leader>q :DBExecRangeSQL<cr>
 " ======== indent line ===================
 let g:indentLine_color_term='black'
 
-" ======== soloarized setting ==============
+" ======= solarized ===========
 syntax enable
 set background=dark
 colorscheme solarized
