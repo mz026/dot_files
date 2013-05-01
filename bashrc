@@ -63,3 +63,6 @@ alias gco='git co'
 # repository alias
 repo_requirejs='git://github.com/jrburke/requirejs.git'
 repo_text='git://github.com/requirejs/text.git'
+
+# settings for tmux
+alias tmux="TERM=screen-256color tmux"
