@@ -99,8 +99,8 @@ nmap <C-p> "+p
 vmap <C-y> "+y
 
 "move tab to left/right by shift-<left>/<right>
-nnoremap <silent> <s-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <s-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+nnoremap <silent> <leader>H :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <leader>L :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 " ,/ to close search hilight
 nmap <leader>/ :nohl<CR>
