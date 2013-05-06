@@ -10,7 +10,7 @@
   lgp = log --pretty=oneline
   r = remote
   lgg = log --graph --pretty=format:'%C(green)%h%Creset  %s'
-  l = log --graph --pretty=format':%C(green)%h%Cblue%d%Creset %s %C(black bold) %an, %ar%Creset'
+  l = log --graph --pretty=format':%C(green)%h%Cblue%d%Creset %s %C(cyan dim) %an, %ar%Creset'
   psod = push origin development
   ft = fetch
   mod = merge origin/development
