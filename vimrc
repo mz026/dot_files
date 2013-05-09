@@ -194,6 +194,7 @@ let g:dbext_default_buffer_lines=30
 vmap <leader>q :DBExecRangeSQL<cr>
 
 " ======== indent line ===================
+" let g:indentLine_color_term='black' 
 let g:indentLine_color_term='black'
 
 " ======= solarized ===========
@@ -201,3 +202,6 @@ syntax enable
 set background=dark
 colorscheme solarized
 set t_Co=16
+
+" ======= enable cursor line ===============
+set cursorline
