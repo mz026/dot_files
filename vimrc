@@ -13,6 +13,7 @@ Bundle 'xmledit'
 Bundle 'The-NERD-tree'
 Bundle 'javascript.vim--welshare'
 Bundle 'php.vim--Hodge'
+Bundle "vim-scripts/phpfolding.vim"
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-endwise'
@@ -145,11 +146,9 @@ nnoremap <space> za
 " html folding
 au BufNewFile,BufRead *.html nmap F zfit
 
-" php folding
-let php_folding=1
-
 "set foldmethod=syntax when ruby
 au BufRead,BufNewFile *.rb set foldmethod=syntax
+au BufRead,BufNewFile *.php set foldmethod=syntax
 
 
 " ========= Plugins settings ===================
@@ -194,8 +193,8 @@ let g:dbext_default_buffer_lines=30
 vmap <leader>q :DBExecRangeSQL<cr>
 
 " ======== indent line ===================
-" let g:indentLine_color_term='black' 
-let g:indentLine_color_term='black'
+let g:indentLine_color_term='black' 
+let g:indentLine_char='|'
 
 " ======= solarized ===========
 syntax enable
