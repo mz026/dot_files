@@ -144,7 +144,7 @@ hi Folded ctermbg=0
 nnoremap <space> za
 
 " html folding
-au BufNewFile,BufRead *.html nmap F zfit
+au BufNewFile,BufRead *.html nmap <leader>f zfit
 
 "set foldmethod=syntax when ruby
 au BufRead,BufNewFile *.rb set foldmethod=syntax
