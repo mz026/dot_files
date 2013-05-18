@@ -39,8 +39,9 @@ Bundle "Handlebars"
 Bundle 'groenewege/vim-less'
 Bundle "dbext.vim"
 Bundle "Yggdroot/indentLine"
-Bundle "css3"
 Bundle "altercation/vim-colors-solarized"
+Bundle "css3-syntax-plus"
+Bundle "cakebaker/scss-syntax.vim"
 
 filetype plugin indent on     " required! 
 
