@@ -30,7 +30,7 @@ Bundle "vim-coffee-script"
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "mz026/snipmate-snippets"
-Bundle "garbas/vim-snipmate"
+Bundle "mz026/vim-snipmate"
 
 Bundle "matchit.zip"
 Bundle "HTML5-Syntax-File"
@@ -174,7 +174,8 @@ vmap <leader>c <C-_><C-_>
 nmap <leader>md :%! $HOME/settingFiles/Markdown_1.0.1/Markdown.pl --html4tags
 
 "change vim-snipmate trigger to ,, to avoid collision with SuperTab.
-let g:snips_trigger_key="<leader><leader>"
+" let g:snips_trigger_key="<leader><leader>"
+imap <leader><leader> <Plug>snipMateNextOrTrigger
 
 "change sparkup trigger
 let g:sparkupExecuteMapping='<leader>e'
