@@ -34,7 +34,6 @@ Bundle "mz026/vim-snipmate"
 
 Bundle "matchit.zip"
 Bundle "HTML5-Syntax-File"
-Bundle "Command-T"
 Bundle "Handlebars"
 Bundle 'groenewege/vim-less'
 Bundle "dbext.vim"
@@ -43,6 +42,7 @@ Bundle "altercation/vim-colors-solarized"
 Bundle "css3-syntax-plus"
 Bundle "cakebaker/scss-syntax.vim"
 Bundle "terryma/vim-multiple-cursors"
+Bundle 'ctrlp.vim'
 
 filetype plugin indent on     " required! 
 
@@ -204,6 +204,11 @@ syntax enable
 set background=dark
 colorscheme solarized
 set t_Co=256
+
+" ======= ctrlP ====================
+let g:ctrlp_map = '<leader>t'
+" let ctrlP work from :pwd
+let g:ctrlp_working_path_mode = '0'
 
 " ======= enable cursor line ===============
 set cursorline
