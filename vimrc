@@ -43,6 +43,8 @@ Bundle "css3-syntax-plus"
 Bundle "cakebaker/scss-syntax.vim"
 Bundle "terryma/vim-multiple-cursors"
 Bundle 'ctrlp.vim'
+Bundle "tpope/vim-cucumber"
+Bundle "tpope/vim-rails"
 
 filetype plugin indent on     " required! 
 
@@ -111,9 +113,6 @@ nmap <leader>/ :nohl<CR>
 " T to zt, put current line to the top of screen.
 nmap T zt
 
-" ctrl-t to :tabe, open new tab
-nmap <C-t> :tabe<CR>
-
 " ctrl-a to select all 
 nmap <C-a> ggVG
 
@@ -122,6 +121,12 @@ nmap <leader>v gv
 
 " <leader>s to sort in visual mode
 vmap <leader>s :sort /\%V/<CR>
+
+" map ctrl-t to open file under cursor in new tab
+nmap <C-t> <C-w>gf
+
+" map ,<C-]> to open tag in new tab
+nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
 " ========== 80 columns =====================
 " 80 column highlight
