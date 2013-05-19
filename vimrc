@@ -42,6 +42,7 @@ Bundle "Yggdroot/indentLine"
 Bundle "altercation/vim-colors-solarized"
 Bundle "css3-syntax-plus"
 Bundle "cakebaker/scss-syntax.vim"
+Bundle "terryma/vim-multiple-cursors"
 
 filetype plugin indent on     " required! 
 
@@ -194,14 +195,14 @@ let g:dbext_default_buffer_lines=30
 vmap <leader>q :DBExecRangeSQL<cr>
 
 " ======== indent line ===================
-let g:indentLine_color_term='black' 
+let g:indentLine_color_term=237
 let g:indentLine_char='|'
 
 " ======= solarized ===========
 syntax enable
 set background=dark
 colorscheme solarized
-set t_Co=16
+set t_Co=256
 
 " ======= enable cursor line ===============
 set cursorline
