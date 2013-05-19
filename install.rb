@@ -10,7 +10,7 @@ module DotFile
   Tmux_config_path = "#{Home}/.tmux.conf"
 end
 
-def update path, name
+def update_link path, name
   if File.exists? path
     system "rm #{path}"
   end
@@ -19,15 +19,23 @@ def update path, name
   puts "update #{path}"
 end
 
-
-unless Dir.exists? DotFile::Dot_files_path
-  system "git clone #{DotFile::Git_repo} #{DotFile::Dot_files_path}" 
-  puts "clone dot_files to #{DotFile::Dot_files_path}"
+def clone_dot_files
+  unless Dir.exists? DotFile::Dot_files_path
+    system "git clone #{DotFile::Git_repo} #{DotFile::Dot_files_path}" 
+    puts "clone dot_files to #{DotFile::Dot_files_path}"
+  end
 end
 
-update DotFile::Vimrc_path, "vimrc"
-update DotFile::Gitconfig_path, "gitconfig"
-update DotFile::Tmux_config_path, "tmux.conf"
+def install_vundle
+  unless Dir.exists? File.join(DotFile::Home, ".vim/bundle/vundle")
+    system "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
+  end
+end
 
+clone_dot_files
+install_vundle
+update_link DotFile::Vimrc_path, "vimrc"
+update_link DotFile::Gitconfig_path, "gitconfig"
+update_link DotFile::Tmux_config_path, "tmux.conf"
 
 puts "OK"
