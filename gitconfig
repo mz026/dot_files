@@ -29,3 +29,5 @@
 	name = Yang-Hsing Lin
 	email = yanghsing.lin@thekono.com
 
+[init]
+	templatedir = ~/.dot_files/git_template
