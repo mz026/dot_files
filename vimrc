@@ -128,6 +128,13 @@ nmap <C-t> <C-w>gf
 " map ,<C-]> to open tag in new tab
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
+" map ,w ,b ,j ,k to easyMotion w b j k
+nmap <leader>w ,,w
+nmap <leader>e ,,e
+nmap <leader>b ,,b
+nmap <leader>j ,,j
+nmap <leader>k ,,k
+
 " ========== 80 columns =====================
 " 80 column highlight
 if v:version >= 703
@@ -179,8 +186,7 @@ vmap <leader>c <C-_><C-_>
 nmap <leader>md :%! $HOME/settingFiles/Markdown_1.0.1/Markdown.pl --html4tags
 
 "change vim-snipmate trigger to ,, to avoid collision with SuperTab.
-" let g:snips_trigger_key="<leader><leader>"
-imap <leader><leader> <Plug>snipMateNextOrTrigger
+let g:snips_trigger_key="<leader><leader>"
 
 "change sparkup trigger
 let g:sparkupExecuteMapping='<leader>e'
