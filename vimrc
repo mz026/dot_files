@@ -62,6 +62,7 @@ set smartcase
 set hlsearch
 set ruler
 set laststatus=2
+set encoding=utf8
 highlight LineNr term=bold cterm=NONE ctermfg=Grey
 
 " command mode abbreviations.
