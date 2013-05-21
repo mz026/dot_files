@@ -37,7 +37,6 @@ Bundle "HTML5-Syntax-File"
 Bundle "Handlebars"
 Bundle 'groenewege/vim-less'
 Bundle "dbext.vim"
-Bundle "Yggdroot/indentLine"
 Bundle "altercation/vim-colors-solarized"
 Bundle "css3-syntax-plus"
 Bundle "cakebaker/scss-syntax.vim"
@@ -45,6 +44,7 @@ Bundle "terryma/vim-multiple-cursors"
 Bundle 'ctrlp.vim'
 Bundle "tpope/vim-cucumber"
 Bundle "tpope/vim-rails"
+Bundle "nathanaelkane/vim-indent-guides"
 
 filetype plugin indent on     " required! 
 
@@ -224,3 +224,11 @@ let g:ctrlp_working_path_mode = '0'
 
 " ======= enable cursor line ===============
 set cursorline
+
+" ======= indent guide settings ==========
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
