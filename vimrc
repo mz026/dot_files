@@ -136,11 +136,18 @@ nmap <leader>b ,,b
 nmap <leader>j ,,j
 nmap <leader>k ,,k
 
+" ======= solarized ===========
+syntax enable
+set background=dark
+colorscheme solarized
+set t_Co=256
+
+
 " ========== 80 columns =====================
 " 80 column highlight
 if v:version >= 703
   set colorcolumn=85
-  :hi ColorColumn ctermfg=gray ctermbg=black
+  hi ColorColumn ctermfg=grey ctermbg=235
 endif
 
 "for vsp 80 column width
@@ -207,28 +214,16 @@ let g:dbext_default_buffer_lines=30
 " map ,q (query) in visual mode to execute slected sql
 vmap <leader>q :DBExecRangeSQL<cr>
 
-" ======== indent line ===================
-let g:indentLine_color_term=237
-let g:indentLine_char='|'
-
-" ======= solarized ===========
-syntax enable
-set background=dark
-colorscheme solarized
-set t_Co=256
-
 " ======= ctrlP ====================
 let g:ctrlp_map = '<leader>t'
 " let ctrlP work from :pwd
 let g:ctrlp_working_path_mode = '0'
-
-" ======= enable cursor line ===============
-set cursorline
 
 " ======= indent guide settings ==========
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=237
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
+
