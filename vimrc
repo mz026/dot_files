@@ -159,7 +159,7 @@ highlight LineNr ctermfg=darkgray ctermbg=black
 
 " =========== folding methods ==============
 " fold highlight
-hi Folded ctermfg=white
+hi Folded ctermfg=gray
 hi Folded ctermbg=0
 
 " space in normal mode to alternate folding.
