@@ -197,7 +197,7 @@ nmap <leader>md :%! $HOME/settingFiles/Markdown_1.0.1/Markdown.pl --html4tags
 let g:snips_trigger_key="<leader><leader>"
 
 "change sparkup trigger
-let g:sparkupExecuteMapping='<leader>e'
+let g:sparkupExecuteMapping='<leader>s'
 
 " ========== work around and others ==============
 "fix backspace not working in 7.3
