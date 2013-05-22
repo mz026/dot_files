@@ -45,6 +45,7 @@ Bundle 'ctrlp.vim'
 Bundle "tpope/vim-cucumber"
 Bundle "tpope/vim-rails"
 Bundle "nathanaelkane/vim-indent-guides"
+Bundle "Lokaltog/vim-powerline"
 
 filetype plugin indent on     " required! 
 
@@ -227,3 +228,5 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
 
+" ======= Powerline ====================
+let g:Powerline_colorscheme="solarized256"
