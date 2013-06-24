@@ -66,3 +66,5 @@ repo_text='git://github.com/requirejs/text.git'
 
 # settings for tmux
 alias tmux="TERM=screen-256color tmux"
+
+eval `dircolors ~/.dir_colors/dircolors.ansi-dark`
