@@ -66,3 +66,4 @@ repo_text='git://github.com/requirejs/text.git'
 
 # settings for tmux
 alias tmux="TERM=screen-256color tmux"
+alias tmcopy="tmux save-buffer - | xclip -i -selection clipboard"
