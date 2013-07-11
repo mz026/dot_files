@@ -10,7 +10,7 @@ module DotFile
   Tmux_config_path = "#{Home}/.tmux.conf"
 end
 
-def update_link path, name
+def create_symbolic_link path, name
   if File.exists? path
     system "rm #{path}"
   end
@@ -34,8 +34,9 @@ end
 
 clone_dot_files
 install_vundle
-update_link DotFile::Vimrc_path, "vimrc"
-update_link DotFile::Gitconfig_path, "gitconfig"
-update_link DotFile::Tmux_config_path, "tmux.conf"
+create_symbolic_link DotFile::Vimrc_path, "vimrc"
+create_symbolic_link DotFile::Gitconfig_path, "gitconfig"
+create_symbolic_link DotFile::Tmux_config_path, "tmux.conf"
+system "echo 'source ~/.dot_files/bashrc >> ~/.bashrc'"
 
 puts "OK"
