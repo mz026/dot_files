@@ -37,6 +37,6 @@ install_vundle
 create_symbolic_link DotFile::Vimrc_path, "vimrc"
 create_symbolic_link DotFile::Gitconfig_path, "gitconfig"
 create_symbolic_link DotFile::Tmux_config_path, "tmux.conf"
-system "echo 'source ~/.dot_files/bashrc >> ~/.bashrc'"
+system "echo 'source ~/.dot_files/bashrc' >> ~/.bashrc"
 
 puts "OK"
