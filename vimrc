@@ -46,6 +46,7 @@ Bundle "tpope/vim-cucumber"
 Bundle "tpope/vim-rails"
 Bundle "nathanaelkane/vim-indent-guides"
 Bundle "Lokaltog/vim-powerline"
+Bundle "thoughtbot/vim-rspec"
 
 filetype plugin indent on     " required! 
 
@@ -230,3 +231,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
 
 " ======= Powerline ====================
 let g:Powerline_colorscheme="solarized256"
+
+" ======= Rspec vim ====================
+map <Leader>r :call RunCurrentSpecFile()<CR>
+map <Leader>d :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
