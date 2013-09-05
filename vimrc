@@ -41,7 +41,7 @@ Bundle "altercation/vim-colors-solarized"
 Bundle "css3-syntax-plus"
 Bundle "cakebaker/scss-syntax.vim"
 Bundle "terryma/vim-multiple-cursors"
-Bundle 'ctrlp.vim'
+Bundle "wincent/Command-T"
 Bundle "tpope/vim-cucumber"
 Bundle "tpope/vim-rails"
 Bundle "nathanaelkane/vim-indent-guides"
@@ -215,11 +215,6 @@ let g:dbext_default_buffer_lines=30
 
 " map ,q (query) in visual mode to execute slected sql
 vmap <leader>q :DBExecRangeSQL<cr>
-
-" ======= ctrlP ====================
-let g:ctrlp_map = '<leader>t'
-" let ctrlP work from :pwd
-let g:ctrlp_working_path_mode = '0'
 
 " ======= indent guide settings ==========
 let g:indent_guides_start_level = 2
