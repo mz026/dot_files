@@ -27,7 +27,7 @@
   ui = true
 [user]
 	name = Yang-Hsing Lin
-	email = yanghsing.lin@thekono.com
+	email = yanghsing.lin@gmail.com
 
 [init]
 	templatedir = ~/.dot_files/git_template
