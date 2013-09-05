@@ -237,3 +237,7 @@ map <Leader>r :call RunCurrentSpecFile()<CR>
 map <Leader>d :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_command = "!clear; rspec --drb {spec}"
+
+" ======= set backupcopy=yes for karma test runner ========
+set backupcopy=yes
