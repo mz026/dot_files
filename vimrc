@@ -233,3 +233,6 @@ let g:rspec_command = "!clear; rspec {spec}"
 " ======= set backupcopy=yes for karma test runner ========
 set backupcopy=yes
 
+" ====== command-T ================
+let g:CommandTMaxHeight=20
+let g:CommandTMinHeight=20
