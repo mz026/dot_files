@@ -40,13 +40,13 @@ Bundle "dbext.vim"
 Bundle "altercation/vim-colors-solarized"
 Bundle "css3-syntax-plus"
 Bundle "cakebaker/scss-syntax.vim"
-Bundle "terryma/vim-multiple-cursors"
 Bundle "wincent/Command-T"
 Bundle "tpope/vim-cucumber"
 Bundle "tpope/vim-rails"
 Bundle "nathanaelkane/vim-indent-guides"
 Bundle "Lokaltog/vim-powerline"
 Bundle "thoughtbot/vim-rspec"
+Bundle "mz026/simplefold"
 
 filetype plugin indent on     " required! 
 
@@ -170,23 +170,19 @@ nnoremap <space> za
 " html folding
 au BufNewFile,BufRead *.html nmap <leader>f zfit
 
-"set foldmethod=syntax when ruby
-au BufRead,BufNewFile *.rb set foldmethod=syntax
-au BufRead,BufNewFile *.php set foldmethod=syntax
-
 
 " ========= Plugins settings ===================
 " scss syntax, located in .vim/syntax/
 au BufRead,BufNewFile *.scss set filetype=scss
+
+"enable simplefold when ruby
+au BufRead,BufNewFile *.rb let b:simplefold_enabled = 1
 
 " ruby complete
 " http://chloerei.blogbus.com/logs/33034033.html
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
-
-"Tlist setting
-let Tlist_WinWidth=35
 
 "T-comment alias, map ,, to ctrl_ctrl_
 nmap <leader>c <C-_><C-_>
@@ -232,7 +228,11 @@ map <Leader>r :call RunCurrentSpecFile()<CR>
 map <Leader>d :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "!clear; rspec --drb {spec}"
+let g:rspec_command = "!clear; rspec {spec}"
 
 " ======= set backupcopy=yes for karma test runner ========
 set backupcopy=yes
+
+" ====== command-T ================
+let g:CommandTMaxHeight=20
+let g:CommandTMinHeight=20
