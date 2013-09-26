@@ -1,13 +1,14 @@
 #!/usr/bin/env ruby
 
 module DotFile
-  Git_repo = "git://github.com/mz026/dot_files.git"
-  Home = ENV["HOME"]
-  Dot_files_path = "#{Home}/.dot_files"
+  GIT_REPO = "git://github.com/mz026/dot_files.git"
+  HOME = ENV["HOME"]
+  DOT_FILES_PATH = "#{HOME}/.dot_files"
 
-  Vimrc_path = "#{Home}/.vimrc"
-  Gitconfig_path = "#{Home}/.gitconfig"
-  Tmux_config_path = "#{Home}/.tmux.conf"
+  VIMRC_PATH = "#{HOME}/.vimrc"
+  GITCONFIG_PATH = "#{HOME}/.gitconfig"
+  TMUX_CONFIG_PATH = "#{HOME}/.tmux.conf"
+  INPUTRC_PATH = "#{HOME}/.inputrc"
 end
 
 def create_symbolic_link path, name
@@ -15,28 +16,31 @@ def create_symbolic_link path, name
     system "rm #{path}"
   end
 
-  system "ln -s #{DotFile::Dot_files_path}/#{name} #{path}"
+  system "ln -s #{DotFile::DOT_FILES_PATH}/#{name} #{path}"
   puts "update #{path}"
 end
 
 def clone_dot_files
-  unless Dir.exists? DotFile::Dot_files_path
-    system "git clone #{DotFile::Git_repo} #{DotFile::Dot_files_path}" 
-    puts "clone dot_files to #{DotFile::Dot_files_path}"
+  unless Dir.exists? DotFile::DOT_FILES_PATH
+    system "git clone #{DotFile::GIT_REPO} #{DotFile::DOT_FILES_PATH}" 
+    puts "clone dot_files to #{DotFile::DOT_FILES_PATH}"
   end
 end
 
 def install_vundle
-  unless Dir.exists? File.join(DotFile::Home, ".vim/bundle/vundle")
+  unless Dir.exists? File.join(DotFile::HOME, ".vim/bundle/vundle")
     system "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
   end
 end
 
 clone_dot_files
 install_vundle
-create_symbolic_link DotFile::Vimrc_path, "vimrc"
-create_symbolic_link DotFile::Gitconfig_path, "gitconfig"
-create_symbolic_link DotFile::Tmux_config_path, "tmux.conf"
+
+create_symbolic_link DotFile::VIMRC_PATH, "vimrc"
+create_symbolic_link DotFile::GITCONFIG_PATH, "gitconfig"
+create_symbolic_link DotFile::TMUX_CONFIG_PATH, "tmux.conf"
+create_symbolic_link DotFile::INPUTRC_PATH, "inputrc"
+
 system "echo 'source ~/.dot_files/bashrc' >> ~/.bashrc"
 
 puts "OK"
