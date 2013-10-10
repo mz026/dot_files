@@ -170,6 +170,8 @@ nnoremap <space> za
 " html folding
 au BufNewFile,BufRead *.html nmap <leader>f zfit
 
+" ========= IncSearch style
+hi IncSearch term=reverse cterm=reverse ctermfg=1
 
 " ========= Plugins settings ===================
 " scss syntax, located in .vim/syntax/
