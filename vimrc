@@ -13,7 +13,6 @@ Bundle 'xmledit'
 Bundle 'The-NERD-tree'
 Bundle 'javascript.vim--welshare'
 Bundle 'php.vim--Hodge'
-Bundle "vim-scripts/phpfolding.vim"
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-endwise'
