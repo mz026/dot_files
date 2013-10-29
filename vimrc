@@ -75,16 +75,6 @@ cab bf buffers
 let mapleader=","
 let g:mapleader=","
 
-" ctrl-l and ctrl-h map to swith vsp window
-nnoremap <c-h> <c-w>w
-inoremap <c-h> <Esc><c-w>w
-nnoremap <c-l> <c-w>w
-inoremap <c-l> <Esc><c-w>w
-nnoremap <c-k> <c-w>k
-inoremap <c-k> <Esc><c-w>k
-nnoremap <c-j> <c-w>j
-inoremap <c-j> <Esc><c-w>j
-
 " map ,gst to fugitive Gstatus
 nnoremap <leader>gst :Gstatus<cr>
 
@@ -130,6 +120,7 @@ nmap <C-t> <C-w>gf
 " map ,<C-]> to open tag in new tab
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
+" ======= easy motion =============
 " map ,w ,b ,j ,k to easyMotion w b j k
 nmap <leader>w ,,w
 nmap <leader>e ,,e
