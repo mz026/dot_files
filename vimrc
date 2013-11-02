@@ -120,6 +120,9 @@ nmap <C-t> <C-w>gf
 " map ,<C-]> to open tag in new tab
 nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
+nnoremap <leader>h <c-w>w
+nnoremap <leader>l <c-w>w
+
 " ======= easy motion =============
 " map ,w ,b ,j ,k to easyMotion w b j k
 nmap <leader>w ,,w
@@ -218,7 +221,6 @@ let g:Powerline_colorscheme="solarized256"
 " ======= Rspec vim ====================
 map <Leader>r :call RunCurrentSpecFile()<CR>
 map <Leader>d :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 let g:rspec_command = "!clear; rspec {spec}"
 
