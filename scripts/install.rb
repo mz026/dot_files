@@ -41,6 +41,10 @@ create_symbolic_link DotFile::GITCONFIG_PATH, "gitconfig"
 create_symbolic_link DotFile::TMUX_CONFIG_PATH, "tmux.conf"
 create_symbolic_link DotFile::INPUTRC_PATH, "inputrc"
 
+puts "installing exuberant-ctags and vim-gnome..."
+
+system "sudo apt-get install -y exuberant-ctags vim-gnome"
+
 system "echo 'source ~/.dot_files/bashrc' >> ~/.bashrc"
 
 puts "OK"
