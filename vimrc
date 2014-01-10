@@ -146,7 +146,7 @@ if v:version >= 703
 endif
 
 "for vsp 80 column width
-set winwidth=90
+set winwidth=100
 set previewheight=30
 
 " ========== number line background ==============
@@ -230,3 +230,4 @@ set backupcopy=yes
 " ====== command-T ================
 let g:CommandTMaxHeight=20
 let g:CommandTMinHeight=20
+set wildignore+=*/vendor/**
