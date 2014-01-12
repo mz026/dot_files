@@ -66,6 +66,10 @@ set laststatus=2
 set encoding=utf8
 highlight LineNr term=bold cterm=NONE ctermfg=Grey
 
+" enable project level vimrc
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
+
 " command mode abbreviations.
 cab bf buffers
 
