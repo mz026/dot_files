@@ -226,7 +226,7 @@ let g:Powerline_colorscheme="solarized256"
 map <Leader>r :call RunCurrentSpecFile()<CR>
 map <Leader>d :call RunNearestSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "!clear; rspec {spec}"
+let g:rspec_command = "!clear; rspec {spec} -f d"
 
 " ======= set backupcopy=yes for karma test runner ========
 set backupcopy=yes
