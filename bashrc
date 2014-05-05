@@ -58,15 +58,12 @@ alias gci='git ci'
 alias gr='git remote -v'
 alias gco='git co'
 
-
-
-# repository alias
-repo_requirejs='git://github.com/jrburke/requirejs.git'
-repo_text='git://github.com/requirejs/text.git'
-
 # settings for tmux
 alias tmux="TERM=screen-256color tmux"
 alias tmcopy="tmux save-buffer - | xclip -i -selection clipboard"
 
 # load git completion
 . $HOME/.dot_files/git-completion.bash
+
+# load less color config
+. $HOME/.dot_files/less_color.bash
