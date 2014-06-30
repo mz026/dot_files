@@ -45,7 +45,11 @@ Bundle "tpope/vim-rails"
 Bundle "nathanaelkane/vim-indent-guides"
 Bundle "Lokaltog/vim-powerline"
 Bundle "thoughtbot/vim-rspec"
-Bundle "mz026/simplefold"
+
+" rubyblock depends on textobj-user
+Bundle "kana/vim-textobj-user" 
+Bundle "nelstrom/vim-textobj-rubyblock"
+Bundle "vim-ruby/vim-ruby"
 
 filetype plugin indent on     " required! 
 
@@ -174,9 +178,6 @@ hi IncSearch term=reverse cterm=reverse ctermfg=1
 " scss syntax, located in .vim/syntax/
 au BufRead,BufNewFile *.scss set filetype=scss
 
-"enable simplefold when ruby
-au BufRead,BufNewFile *.rb let b:simplefold_enabled = 1
-
 " ruby complete
 " http://chloerei.blogbus.com/logs/33034033.html
 let g:rubycomplete_buffer_loading = 1
@@ -235,3 +236,4 @@ set backupcopy=yes
 let g:CommandTMaxHeight=20
 let g:CommandTMinHeight=20
 set wildignore+=*/vendor/**
+
