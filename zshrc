@@ -27,7 +27,7 @@ $(git_prompt)%% '
 # use vi to control command line
 set -o vi
 
-# aliases
+# general aliases
 alias l='ls -CF'
 alias ls='ls --color'
 alias cl='clear'
@@ -54,13 +54,19 @@ alias gmgod='git merge origin/development'
 alias gmgom='git merge origin/master'
 alias gft='git fetch'
 alias ga='git aa'
-alias gci='git ci'
 alias gr='git remote -v'
 alias gco='git co'
+function gci(){
+  git commit -m "$*"
+}
 
 # settings for tmux
 alias tmux="TERM=screen-256color tmux"
 alias tmcopy="tmux save-buffer - | xclip -i -selection clipboard"
+
+# zsh alias
+alias -s log='tail -f'
+alias -g gp="| grep -i"
 
 # load less color config
 . $HOME/.dot_files/less_color.bash
