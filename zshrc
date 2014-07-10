@@ -6,24 +6,23 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-
-function git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\ //'
-}
-function git_short_hash {
-  git rev-parse --short HEAD 2> /dev/null
-}
-
+# prompt
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg[blue]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}-%{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}]"
-# prompt
-setopt PROMPT_SUBST
-autoload -U colors && colors
+
+function git_prompt() {
+  if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
+    ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+    ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+    echo "[%{$fg[blue]%}${ref#refs/heads/}%{$reset_color%}-%{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}]$(parse_git_dirty)"
+  fi
+}
+
 PROMPT='%n@%m: %{$fg[green]%}%~%{$reset_color%}
-$(git_prompt_info)%% '
+$(git_prompt)%% '
 
 # use vi to control command line
 set -o vi
