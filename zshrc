@@ -16,11 +16,14 @@ function git_short_hash {
 
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg[blue]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}-%{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}]"
 # prompt
 setopt PROMPT_SUBST
 autoload -U colors && colors
 PROMPT='%n@%m: %{$fg[green]%}%~%{$reset_color%}
-[%{$fg[blue]%}$(git_branch)%{$reset_color%}-%{$fg[yellow]%}$(git_short_hash)%{$reset_color%}]$(parse_git_dirty)%% '
+$(git_prompt_info)%% '
 
 # use vi to control command line
 set -o vi
