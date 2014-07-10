@@ -50,6 +50,7 @@ Bundle "thoughtbot/vim-rspec"
 Bundle "kana/vim-textobj-user" 
 Bundle "nelstrom/vim-textobj-rubyblock"
 Bundle "vim-ruby/vim-ruby"
+Bundle 'rking/ag.vim'
 
 filetype plugin indent on     " required! 
 
