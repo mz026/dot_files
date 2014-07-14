@@ -6,6 +6,10 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 DISABLE_AUTO_TITLE=true
+
+# load zmv
+autoload -U zmv
+
 # prompt
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
