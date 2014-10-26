@@ -49,12 +49,12 @@ alias phpunitc='phpunit --colors'
 alias gst='git st'
 alias gl='git l'
 alias gps='git ps'
-alias gpsod='git ps origin development'
+alias gpsod='git ps origin develop'
 alias gpsom='git ps origin master'
 alias gbr='git br'
 alias grh='git reset --hard'
 alias gmg='git merge'
-alias gmgod='git merge origin/development'
+alias gmgod='git merge origin/develop'
 alias gmgom='git merge origin/master'
 alias gft='git fetch'
 alias ga='git aa'
@@ -71,6 +71,16 @@ alias tmcopy="tmux save-buffer - | xclip -i -selection clipboard"
 # zsh alias
 alias -s log='tail -f'
 alias -g gp="| grep -i"
+
+# load dir colors
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 # load less color config
 . $HOME/.dot_files/less_color.bash
