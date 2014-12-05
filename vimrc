@@ -53,6 +53,8 @@ Bundle "nelstrom/vim-textobj-rubyblock"
 Bundle "vim-ruby/vim-ruby"
 Bundle 'rking/ag.vim'
 
+Bundle "ekalinin/Dockerfile.vim"
+
 filetype plugin indent on     " required! 
 
 " my settings here
@@ -143,7 +145,7 @@ nmap <leader>k ,,k
 
 " ======= solarized ===========
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 set t_Co=256
 
@@ -152,7 +154,7 @@ set t_Co=256
 " 80 column highlight
 if v:version >= 703
   set colorcolumn=85
-  hi ColorColumn ctermfg=grey ctermbg=7
+  hi ColorColumn ctermfg=grey ctermbg=235
 endif
 
 "for vsp 80 column width
@@ -219,13 +221,14 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=7
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=7
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=7
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=7
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
 
 " ======= Powerline ====================
 let g:Powerline_theme='short'
-let g:Powerline_colorscheme='solarized16_light'
-" let g:Powerline_colorscheme="solarized256_light"
+let g:Powerline_colorscheme='solarized16_dark'
 
 " ======= Rspec vim ====================
 map <Leader>r :call RunCurrentSpecFile()<CR>
