@@ -72,6 +72,10 @@ alias tmcopy="tmux save-buffer - | xclip -i -selection clipboard"
 alias -s log='tail -f'
 alias -g gp="| grep -i"
 
+# docker
+alias dk='docker'
+
+
 # load dir colors
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
