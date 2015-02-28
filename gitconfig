@@ -16,6 +16,7 @@
   mod = merge origin/development
 [core]
   editor = vim
+	excludesfile = ~/.gitignore_global
 
 [status]
   submodule = 1
