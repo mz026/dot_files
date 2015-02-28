@@ -54,6 +54,7 @@ Bundle "vim-ruby/vim-ruby"
 Bundle 'rking/ag.vim'
 
 Bundle "ekalinin/Dockerfile.vim"
+Bundle "dyng/ctrlsf.vim"
 
 filetype plugin indent on     " required! 
 
@@ -242,5 +243,7 @@ set backupcopy=yes
 " ====== command-T ================
 let g:CommandTMaxHeight=20
 let g:CommandTMinHeight=20
-set wildignore+=*/vendor/**
+set wildignore+=*/vendor/**,*bower_components*,*node_modules*
 
+" ====== ctrlsf ==================
+let g:ctrlsf_auto_close = 0
