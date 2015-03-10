@@ -14,18 +14,15 @@ autoload -U zmv
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}✗ %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-ZSH_THEME_GIT_PROMPT_PREFIX="[%{$fg[blue]%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}-%{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}]"
-
 function git_prompt() {
   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-    echo "[%{$fg[blue]%}${ref#refs/heads/}%{$reset_color%}-%{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}]$(parse_git_dirty)"
+    echo "[%{$FG[012]%}${ref#refs/heads/}%{$reset_color%}-%{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}]$(parse_git_dirty)"
   fi
 }
 
-PROMPT='%n@%m: %{$fg[green]%}%~%{$reset_color%}
+PROMPT='%n@%m: %{$FG[143]%}%~%{$reset_color%}
 $(git_prompt)%% '
 
 # use vi to control command line
@@ -85,6 +82,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+export TERM=xterm-256color
 
 # load less color config
 . $HOME/.dot_files/less_color.bash

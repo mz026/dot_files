@@ -17,7 +17,6 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'Auto-Pairs'
 Plugin 'surround.vim'
 Plugin 'EasyMotion'
-" Plugin 'SuperTab-continued.'
 Plugin 'ervandew/supertab'
 Plugin 'tComment'
 Plugin 'bingaman/vim-sparkup'
@@ -34,15 +33,13 @@ Plugin 'HTML5-Syntax-File'
 Plugin 'Handlebars'
 Plugin 'groenewege/vim-less'
 Plugin 'dbext.vim'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'css3-syntax-plus'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'wincent/Command-T'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-rails'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'stephenmckinney/vim-solarized-powerline'
+Plugin 'bling/vim-airline'
 Plugin 'thoughtbot/vim-rspec'
 
 " rubyblock depends on textobj-user
@@ -55,6 +52,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'Lokaltog/vim-distinguished'
 
 call vundle#end()  
 filetype plugin indent on     " required! 
@@ -151,10 +149,10 @@ nmap <leader>b ,,b
 nmap <leader>j ,,j
 nmap <leader>k ,,k
 
-" ======= solarized ===========
+" ======= colorscheme ===========
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme distinguished
 set t_Co=256
 
 
@@ -229,14 +227,9 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=7
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=7
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
 
-" ======= Powerline ====================
-let g:Powerline_theme='short'
-let g:Powerline_colorscheme='solarized16_dark'
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
 
 " ======= Rspec vim ====================
 map <Leader>r :call RunCurrentSpecFile()<CR>
@@ -256,3 +249,16 @@ set wildignore+=*/vendor/**,*bower_components*,*node_modules*
 
 " ====== ctrlsf ==================
 let g:ctrlsf_auto_close = 0
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#bufferline#enabled = 0
+let g:airline#extensions#whitespace#checks = []
+let g:airline#extensions#tabline#show_close_button = 0
+
+" unicode symbols
+let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_sep = ''
+let g:airline_theme = 'tomorrow'
