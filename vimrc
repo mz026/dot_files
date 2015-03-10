@@ -1,61 +1,62 @@
 set nocompatible               " be iMproved
-filetype on                    " for os X
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
-
-Bundle 'xmledit'
-Bundle 'The-NERD-tree'
-Bundle 'javascript.vim--welshare'
-Bundle 'php.vim--Hodge'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-endwise'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'Auto-Pairs'
-Bundle 'surround.vim'
-Bundle 'EasyMotion'
-Bundle "SuperTab-continued."
-Bundle 'tComment'
-Bundle "bingaman/vim-sparkup"
-Bundle "vim-coffee-script"
+Plugin 'gmarik/Vundle.vim'
+Plugin 'xmledit'
+Plugin 'The-NERD-tree'
+Plugin 'php.vim--Hodge'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-endwise'
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'Auto-Pairs'
+Plugin 'surround.vim'
+Plugin 'EasyMotion'
+" Plugin 'SuperTab-continued.'
+Plugin 'ervandew/supertab'
+Plugin 'tComment'
+Plugin 'bingaman/vim-sparkup'
+Plugin 'vim-coffee-script'
 
 "vim-snipmate dependencies
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "mz026/snipmate-snippets"
-Bundle "mz026/vim-snipmate"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'mz026/snipmate-snippets'
+Plugin 'mz026/vim-snipmate'
 
-Bundle "matchit.zip"
-Bundle "HTML5-Syntax-File"
-Bundle "Handlebars"
-Bundle 'groenewege/vim-less'
-Bundle "dbext.vim"
-Bundle "altercation/vim-colors-solarized"
-Bundle "css3-syntax-plus"
-Bundle "cakebaker/scss-syntax.vim"
-Bundle "wincent/Command-T"
-Bundle "tpope/vim-cucumber"
-Bundle "tpope/vim-rails"
-Bundle "nathanaelkane/vim-indent-guides"
-Bundle "Lokaltog/vim-powerline"
-Bundle "stephenmckinney/vim-solarized-powerline"
-Bundle "thoughtbot/vim-rspec"
+Plugin 'matchit.zip'
+Plugin 'HTML5-Syntax-File'
+Plugin 'Handlebars'
+Plugin 'groenewege/vim-less'
+Plugin 'dbext.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'css3-syntax-plus'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'wincent/Command-T'
+Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-rails'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'stephenmckinney/vim-solarized-powerline'
+Plugin 'thoughtbot/vim-rspec'
 
 " rubyblock depends on textobj-user
-Bundle "kana/vim-textobj-user" 
-Bundle "nelstrom/vim-textobj-rubyblock"
-Bundle "vim-ruby/vim-ruby"
-Bundle 'rking/ag.vim'
+Plugin 'kana/vim-textobj-user' 
+Plugin 'nelstrom/vim-textobj-rubyblock'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'rking/ag.vim'
 
-Bundle "ekalinin/Dockerfile.vim"
-Bundle "dyng/ctrlsf.vim"
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
+call vundle#end()  
 filetype plugin indent on     " required! 
 
 " my settings here
@@ -135,6 +136,12 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 
 nnoremap <leader>h <c-w>w
 nnoremap <leader>l <c-w>w
+
+
+" highlight def link, to solve js object key highlighting
+" form https://github.com/pangloss/vim-javascript/issues/138
+hi def link jsObjectKey Label 
+hi def link jsFunctionKey Label 
 
 " ======= easy motion =============
 " map ,w ,b ,j ,k to easyMotion w b j k
@@ -243,7 +250,9 @@ set backupcopy=yes
 " ====== command-T ================
 let g:CommandTMaxHeight=20
 let g:CommandTMinHeight=20
+let g:CommandTTraverseSCM='pwd'
 set wildignore+=*/vendor/**,*bower_components*,*node_modules*
+
 
 " ====== ctrlsf ==================
 let g:ctrlsf_auto_close = 0
