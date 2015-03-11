@@ -207,6 +207,11 @@ let g:snips_trigger_key="<leader><leader>"
 "change sparkup trigger
 let g:sparkupExecuteMapping='<leader>s'
 
+" Tabline color
+:hi TabLineFill ctermbg=235
+:hi TabLine ctermfg=247 ctermbg=8
+:hi TabLineSel cterm=bold ctermfg=0 ctermbg=143
+
 " ========== work around and others ==============
 "fix backspace not working in 7.3
 "http://linux-journal.blogspot.com/2005/04/fix-vim-backspace-doesnt-work.html
@@ -250,12 +255,8 @@ set wildignore+=*/vendor/**,*bower_components*,*node_modules*
 " ====== ctrlsf ==================
 let g:ctrlsf_auto_close = 0
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#bufferline#enabled = 0
+" ====== airline ================
 let g:airline#extensions#whitespace#checks = []
-let g:airline#extensions#tabline#show_close_button = 0
-
 " unicode symbols
 let g:airline_left_sep = ''
 let g:airline_left_sep = ''
