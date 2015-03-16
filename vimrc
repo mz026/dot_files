@@ -52,7 +52,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'Lokaltog/vim-distinguished'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()  
 filetype plugin indent on     " required! 
@@ -72,7 +72,6 @@ set hlsearch
 set ruler
 set laststatus=2
 set encoding=utf8
-highlight LineNr term=bold cterm=NONE ctermfg=Grey
 
 " enable project level vimrc
 set exrc            " enable per-directory .vimrc files
@@ -152,7 +151,9 @@ nmap <leader>k ,,k
 " ======= colorscheme ===========
 syntax enable
 set background=dark
-colorscheme distinguished
+let base16colorspace=256 
+" colorscheme base16-default
+colorscheme base16-eighties
 set t_Co=256
 
 
@@ -163,12 +164,13 @@ if v:version >= 703
   hi ColorColumn ctermfg=grey ctermbg=235
 endif
 
+" ========= match highlight ================
+highlight MatchParen cterm=underline ctermfg=none ctermbg=none
+
+
 "for vsp 80 column width
 set winwidth=100
 set previewheight=30
-
-" ========== number line background ==============
-" highlight LineNr ctermfg=darkgray ctermbg=black
 
 " =========== folding methods ==============
 " fold highlight
@@ -269,3 +271,4 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
+
