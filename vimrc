@@ -152,8 +152,8 @@ nmap <leader>k ,,k
 syntax enable
 set background=dark
 let base16colorspace=256 
-" colorscheme base16-default
-colorscheme base16-eighties
+colorscheme base16-default
+" colorscheme base16-eighties
 set t_Co=256
 
 
@@ -272,3 +272,4 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 
+set clipboard=unnamed

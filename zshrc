@@ -29,10 +29,9 @@ $(git_prompt)%% '
 set -o vi
 
 # general aliases
-alias l='ls -CF'
-alias ls='ls --color'
+alias ls='ls -G'
 alias cl='clear'
-alias ll='ls -lh'
+#alias ll='ls -lh'
 alias vi='vim'
 
 # rails aliases
