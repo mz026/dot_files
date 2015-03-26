@@ -53,6 +53,7 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'chriskempson/base16-vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()  
 filetype plugin indent on     " required! 
@@ -274,3 +275,9 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 
+" multi-cursor
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-j>'
+let g:multi_cursor_prev_key='<C-k>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
