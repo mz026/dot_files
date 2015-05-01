@@ -72,6 +72,12 @@ alias -g gp="| grep -i"
 # docker
 alias dk='docker'
 
+# http simple server
+alias simplesvr='ruby -run -ehttpd . -p8000'
+
+# thefuck
+alias fuck='eval $(thefuck $(fc -ln -1))'
+
 
 # load dir colors
 if [ -x /usr/bin/dircolors ]; then
@@ -90,3 +96,6 @@ BASE16_SHELL="$HOME/codes/lib/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 # load less color config
 . $HOME/.dot_files/less_color.bash
+
+
+source $HOME/.dot_files/fzf.sh
