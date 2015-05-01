@@ -69,8 +69,8 @@ set tabstop=2
 set number
 set cindent 
 set autoindent
-set ignorecase
-set smartcase
+set noignorecase
+set incsearch
 set hlsearch
 set ruler
 set laststatus=2
