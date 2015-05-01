@@ -54,6 +54,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'chriskempson/base16-vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'wavded/vim-stylus'
 
 call vundle#end()  
 filetype plugin indent on     " required! 
