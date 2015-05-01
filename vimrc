@@ -2,6 +2,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf
 call vundle#begin()
 
 " let Vundle manage Vundle
@@ -35,7 +36,6 @@ Plugin 'groenewege/vim-less'
 Plugin 'dbext.vim'
 Plugin 'css3-syntax-plus'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'wincent/Command-T'
 Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-rails'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -250,12 +250,8 @@ let g:rspec_command = "!clear; rspec {spec} -f d"
 " ======= set backupcopy=yes for karma test runner ========
 set backupcopy=yes
 
-" ====== command-T ================
-let g:CommandTMaxHeight=20
-let g:CommandTMinHeight=20
-let g:CommandTTraverseSCM='pwd'
-set wildignore+=*/vendor/**,*bower_components*,*node_modules*
-
+" ===== FZF =================
+nmap <leader>t :FZF<cr>
 
 " ====== ctrlsf ==================
 let g:ctrlsf_auto_close = 0
