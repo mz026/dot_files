@@ -33,7 +33,7 @@ alias l='ls -CF'
 alias ls='ls --color'
 alias cl='clear'
 alias ll='ls -lh'
-alias vi='vim'
+alias vi='vim -X'
 
 # rails aliases
 alias be='bundle exec'
@@ -99,3 +99,4 @@ BASE16_SHELL="$HOME/codes/lib/base16-shell/base16-default.dark.sh"
 
 
 source $HOME/.dot_files/fzf.sh
+source $HOME/codes/lib/z/z.sh
