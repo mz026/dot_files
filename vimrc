@@ -57,6 +57,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'wavded/vim-stylus'
 Plugin 'scrooloose/syntastic'
+Plugin 'ntpeters/vim-better-whitespace'
 
 call vundle#end()  
 filetype plugin indent on     " required! 
