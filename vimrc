@@ -56,6 +56,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'wavded/vim-stylus'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()  
 filetype plugin indent on     " required! 
@@ -281,3 +282,12 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 call serverlist()
+
+" =========== syntastic ===========
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" Javascript linting: disable currently
+" let g:syntastic_javascript_checkers = ['eslint']
+" let b:syntastic_javascript_eslint_args = '--reset'
