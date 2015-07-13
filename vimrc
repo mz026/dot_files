@@ -6,7 +6,7 @@ set rtp+=~/.fzf
 call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'gmarik/Vundle.vim'
 Plugin 'xmledit'
 Plugin 'The-NERD-tree'
@@ -43,7 +43,7 @@ Plugin 'bling/vim-airline'
 Plugin 'thoughtbot/vim-rspec'
 
 " rubyblock depends on textobj-user
-Plugin 'kana/vim-textobj-user' 
+Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'rking/ag.vim'
@@ -56,11 +56,11 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'wavded/vim-stylus'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'ntpeters/vim-better-whitespace'
 
-call vundle#end()  
-filetype plugin indent on     " required! 
+call vundle#end()
+filetype plugin indent on     " required!
 
 " my settings here
 syntax on
@@ -69,7 +69,7 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set number
-set cindent 
+set cindent
 set autoindent
 set noignorecase
 set incsearch
@@ -106,7 +106,7 @@ vmap K 5k
 
 " copy and paste
 " $ vim --version | grep clipboard    must have +xterm_clipboard
-" otherwise, 
+" otherwise,
 " $ sudo apt-get install vim-gnome
 nmap <C-p> "+p
 vmap <C-y> "+y
@@ -121,7 +121,7 @@ nmap <leader>/ :nohl<CR>
 " T to zt, put current line to the top of screen.
 nmap T zt
 
-" ctrl-a to select all 
+" ctrl-a to select all
 nmap <C-a> ggVG
 
 " ,v to gv
@@ -142,8 +142,8 @@ nnoremap <leader>l <c-w>w
 
 " highlight def link, to solve js object key highlighting
 " form https://github.com/pangloss/vim-javascript/issues/138
-hi def link jsObjectKey Label 
-hi def link jsFunctionKey Label 
+hi def link jsObjectKey Label
+hi def link jsFunctionKey Label
 
 " make diff vertical
 set diffopt+=vertical
@@ -159,7 +159,7 @@ nmap <leader>k ,,k
 " ======= colorscheme ===========
 syntax enable
 set background=dark
-let base16colorspace=256 
+let base16colorspace=256
 colorscheme base16-default
 set t_Co=256
 
@@ -229,7 +229,7 @@ set bs=2
 
 " ========= dbext settings ===================
 let g:dbext_default_type ='MYSQL'
-let g:dbext_default_user ='root' 
+let g:dbext_default_user ='root'
 let g:dbext_default_dbname='KDB_dev'
 let g:dbext_default_buffer_lines=30
 
@@ -285,10 +285,16 @@ let g:multi_cursor_quit_key='<Esc>'
 call serverlist()
 
 " =========== syntastic ===========
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-" Javascript linting: disable currently
+let g:syntastic_javascript_checkers = []
+
+" ========== jsxhint setting ===============
+" let g:syntastic_javascript_checkers = ['jsxhint']
+" let g:syntastic_javascript_jsxhint_args = '--es6module'
+
+" ========== eslint setting ===============
 " let g:syntastic_javascript_checkers = ['eslint']
-" let b:syntastic_javascript_eslint_args = '--reset'
+" let g:syntastic_javascript_eslint_args = '--reset'
