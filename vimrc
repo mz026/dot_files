@@ -58,6 +58,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'wavded/vim-stylus'
 " Plugin 'scrooloose/syntastic'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'godlygeek/tabular'
 
 call vundle#end()
 filetype plugin indent on     " required!
