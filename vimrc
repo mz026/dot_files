@@ -1,4 +1,5 @@
 set nocompatible               " be iMproved
+set nomodeline
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -59,6 +60,7 @@ Plugin 'wavded/vim-stylus'
 " Plugin 'scrooloose/syntastic'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'godlygeek/tabular'
+Plugin 'othree/html5.vim'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -257,6 +259,7 @@ set backupcopy=yes
 
 " ===== FZF =================
 nmap <leader>t :FZF<cr>
+let $FZF_DEFAULT_COMMAND='ag -l -g ""'
 
 " ====== ctrlsf ==================
 let g:ctrlsf_auto_close = 0
@@ -299,3 +302,6 @@ let g:syntastic_javascript_checkers = []
 " ========== eslint setting ===============
 " let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_javascript_eslint_args = '--reset'
+
+" ========= jsx syntax ==================
+let g:jsx_ext_required = 0
