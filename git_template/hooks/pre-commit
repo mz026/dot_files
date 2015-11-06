@@ -1,11 +1,11 @@
 #!/bin/sh
- 
+
 ###
 # Strip whitespaces and convert to Unix newlines.
 # Source: http://stackoverflow.com/a/3516525/86294
 # Save this file into git config directory as .git/hooks/pre-commit
 ###
-echo 'pre commit!'
+echo 'pre commit, remove white spece...'
 if git-rev-parse --verify HEAD >/dev/null 2>&1 ; then
     against=HEAD
 else
