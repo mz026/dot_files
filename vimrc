@@ -142,6 +142,10 @@ nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 nnoremap <leader>h <c-w>w
 nnoremap <leader>l <c-w>w
 
+" in visual mode, map `/target` to `<Esc>/\%Vtarget`
+" so that we can do searching withing the selected block
+" http://vim.wikia.com/wiki/Search_and_replace_in_a_visual_selection
+vnoremap / <Esc>/\%V
 
 " highlight def link, to solve js object key highlighting
 " form https://github.com/pangloss/vim-javascript/issues/138
