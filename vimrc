@@ -57,10 +57,12 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'wavded/vim-stylus'
-" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'godlygeek/tabular'
 Plugin 'othree/html5.vim'
+
+Plugin 'mz026/vim-elixir'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -293,19 +295,8 @@ let g:multi_cursor_quit_key='<Esc>'
 call serverlist()
 
 " =========== syntastic ===========
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-let g:syntastic_javascript_checkers = []
-
-" ========== jsxhint setting ===============
-" let g:syntastic_javascript_checkers = ['jsxhint']
-" let g:syntastic_javascript_jsxhint_args = '--es6module'
-
-" ========== eslint setting ===============
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_eslint_args = '--reset'
-
-" ========= jsx syntax ==================
-let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['eslint']
