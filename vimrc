@@ -41,7 +41,7 @@ Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-rails'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'bling/vim-airline'
-Plugin 'thoughtbot/vim-rspec'
+Plugin 'janko-m/vim-test'
 
 " rubyblock depends on textobj-user
 Plugin 'kana/vim-textobj-user'
@@ -254,11 +254,10 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
 
-" ======= Rspec vim ====================
-map <Leader>r :call RunCurrentSpecFile()<CR>
-map <Leader>d :call RunNearestSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "!clear; rspec {spec} -f d"
+" ====== vim-test ==================
+nmap <silent> <leader>d :TestNearest<CR>
+nmap <silent> <leader>r :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
 
 " ======= set backupcopy=yes for karma test runner ========
 set backupcopy=yes
@@ -300,3 +299,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_javascript_checkers = ['eslint']
+
+" ========= jsx syntax ==================
+let g:jsx_ext_required = 0
