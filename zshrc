@@ -98,5 +98,5 @@ BASE16_SHELL="$HOME/codes/lib/base16-shell/base16-default.dark.sh"
 . $HOME/.dot_files/less_color.bash
 
 
-source $HOME/.dot_files/fzf.sh
 source $HOME/codes/lib/z/z.sh
+source $HOME/.dot_files/fzf.sh
