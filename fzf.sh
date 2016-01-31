@@ -43,3 +43,12 @@ fkill() {
     kill -${1:-9} $pid
   fi
 }
+
+unalias z 2> /dev/null
+z() {
+  if [[ -z "$*" ]]; then
+    cd "$(_z -l 2>&1 | fzf +s --tac | sed 's/^[0-9,.]* *//')"
+  else
+    _z "$@"
+  fi
+}
