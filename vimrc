@@ -61,8 +61,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'godlygeek/tabular'
 Plugin 'othree/html5.vim'
-
 Plugin 'mz026/vim-elixir'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -76,6 +76,7 @@ set tabstop=2
 set number
 set cindent
 set autoindent
+set autoread
 set noignorecase
 set incsearch
 set hlsearch
