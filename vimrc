@@ -9,6 +9,7 @@ call vundle#begin()
 " let Vundle manage Vundle
 " required!
 Plugin 'gmarik/Vundle.vim'
+
 Plugin 'xmledit'
 Plugin 'The-NERD-tree'
 Plugin 'php.vim--Hodge'
@@ -16,7 +17,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-endwise'
 Plugin 'vim-scripts/taglist.vim'
-Plugin 'Auto-Pairs'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'surround.vim'
 Plugin 'EasyMotion'
 Plugin 'ervandew/supertab'
@@ -41,6 +42,7 @@ Plugin 'tpope/vim-cucumber'
 Plugin 'tpope/vim-rails'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'janko-m/vim-test'
 
 " rubyblock depends on textobj-user
@@ -226,11 +228,6 @@ let g:snips_trigger_key="<leader><leader>"
 "change sparkup trigger
 let g:sparkupExecuteMapping='<leader>s'
 
-" Tabline color
-:hi TabLineFill ctermbg=235
-:hi TabLine ctermfg=247 ctermbg=8
-:hi TabLineSel cterm=bold ctermfg=0 ctermbg=143
-
 " ========== work around and others ==============
 "fix backspace not working in 7.3
 "http://linux-journal.blogspot.com/2005/04/fix-vim-backspace-doesnt-work.html
@@ -272,8 +269,8 @@ let g:ctrlsf_auto_close = 0
 
 " ====== airline ================
 let g:airline#extensions#whitespace#checks = []
-let g:airline_theme = 'tomorrow'
 
+let g:airline_theme = 'base16'
 " airline-powerline-chars
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -284,6 +281,15 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " multi-cursor
 let g:multi_cursor_use_default_mapping=0
