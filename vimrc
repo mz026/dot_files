@@ -172,7 +172,7 @@ nmap <leader>k ,,k
 syntax enable
 set background=dark
 let base16colorspace=256
-colorscheme base16-twilight
+colorscheme base16-tomorrow
 set t_Co=256
 
 

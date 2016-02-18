@@ -92,7 +92,7 @@ fi
 export TERM=xterm-256color
 
 # Base16 Shell
-BASE16_SHELL="$HOME/codes/lib/base16-shell/base16-twilight.dark.sh"
+BASE16_SHELL="$HOME/codes/lib/base16-shell/base16-tomorrow.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 # load less color config
 . $HOME/.dot_files/less_color.bash
