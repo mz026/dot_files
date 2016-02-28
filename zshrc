@@ -39,6 +39,14 @@ alias vi='vim -X'
 alias be='bundle exec'
 alias ber='bundle exec rspec'
 
+# elixir
+# use elixir with vi binding
+alias iexv='rlwrap -pGreen -S "iex >>> " -r --always-readline iex'
+
+# node alias
+# use node console with vi binding
+alias nodev='rlwrap -pGreen -S "node >>> " -r --always-readline node'
+
 # php aliases
 alias phpunitc='phpunit --colors'
 
