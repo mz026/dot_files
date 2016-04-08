@@ -65,6 +65,7 @@ alias gft='git fetch'
 alias ga='git aa'
 alias gr='git remote -v'
 alias gco='git co'
+alias gpsf='git push --force-with-lease'
 function gci(){
   git commit -m "$*"
 }
