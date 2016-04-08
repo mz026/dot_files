@@ -102,6 +102,9 @@ let g:mapleader=","
 " map ,gst to fugitive Gstatus
 nnoremap <leader>gst :Gstatus<cr>
 
+" fix tag binding issue
+nnoremap <C-]> <C-]>
+
 " map H, L to switch tab
 nnoremap H <c-PageUp>
 nnoremap L <c-PageDown>
@@ -235,10 +238,8 @@ set bs=2
 
 
 " ========= dbext settings ===================
-let g:dbext_default_type ='MYSQL'
-let g:dbext_default_user ='root'
-let g:dbext_default_dbname='KDB_dev'
-let g:dbext_default_buffer_lines=30
+let g:dbext_default_type ='PGSQL'
+let g:dbext_default_buffer_lines=20
 
 " map ,q (query) in visual mode to execute slected sql
 vmap <leader>q :DBExecRangeSQL<cr>
