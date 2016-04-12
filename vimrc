@@ -236,6 +236,13 @@ let g:sparkupExecuteMapping='<leader>s'
 "http://linux-journal.blogspot.com/2005/04/fix-vim-backspace-doesnt-work.html
 set bs=2
 
+" ========== Tabline settings ==============
+set showtabline=2
+hi TabLineFill ctermbg=235
+hi TabLine ctermfg=247 ctermbg=237
+hi TabLineSel cterm=bold ctermfg=237 ctermbg=4
+
+
 
 " ========= dbext settings ===================
 let g:dbext_default_type ='PGSQL'
@@ -268,6 +275,7 @@ let $FZF_DEFAULT_COMMAND='ag -l -g ""'
 " ====== ctrlsf ==================
 let g:ctrlsf_auto_close = 0
 
+
 " ====== airline ================
 let g:airline#extensions#whitespace#checks = []
 
@@ -282,15 +290,6 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#right_sep = ''
-let g:airline#extensions#tabline#right_alt_sep = ''
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " multi-cursor
 let g:multi_cursor_use_default_mapping=0
