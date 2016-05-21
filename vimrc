@@ -65,6 +65,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'othree/html5.vim'
 Plugin 'mz026/vim-elixir'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'FooSoft/vim-argwrap'
 
 call vundle#end()
 filetype plugin indent on     " required!
@@ -222,9 +223,6 @@ let g:rubycomplete_rails = 1
 nmap <leader>c <C-_><C-_>
 vmap <leader>c <C-_><C-_>
 
-" setup markdown to html
-nmap <leader>md :%! $HOME/settingFiles/Markdown_1.0.1/Markdown.pl --html4tags
-
 "change vim-snipmate trigger to ,, to avoid collision with SuperTab.
 let g:snips_trigger_key="<leader><leader>"
 
@@ -309,3 +307,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " ========= jsx syntax ==================
 let g:jsx_ext_required = 0
+
+" Argwrap
+nnoremap <silent> <leader>v :ArgWrap<CR>
