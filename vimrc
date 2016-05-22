@@ -309,4 +309,4 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:jsx_ext_required = 0
 
 " Argwrap
-nnoremap <silent> <leader>v :ArgWrap<CR>
+nnoremap <silent> <leader>z :ArgWrap<CR>
