@@ -304,9 +304,14 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " ========= jsx syntax ==================
 let g:jsx_ext_required = 0
 
-" Argwrap
+" ======== Argwrap ====================
 nnoremap <silent> <leader>z :ArgWrap<CR>
+
+
+" ======== NERD-tree ====================
+let g:NERDTreeWinSize = 40
