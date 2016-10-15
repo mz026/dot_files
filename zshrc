@@ -71,7 +71,6 @@ function gci(){
 }
 
 # settings for tmux
-alias tmux="TERM=screen-256color tmux"
 alias tmcopy="tmux save-buffer - | xclip -i -selection clipboard"
 
 # zsh alias
@@ -97,8 +96,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
-
-export TERM=xterm-256color
 
 # Base16 Shell
 BASE16_SHELL="$HOME/codes/lib/base16-shell/base16-tomorrow.dark.sh"
