@@ -70,9 +70,6 @@ function gci(){
   git commit -m "$*"
 }
 
-# settings for tmux
-alias tmcopy="tmux save-buffer - | xclip -i -selection clipboard"
-
 # zsh alias
 alias -s log='tail -f'
 alias -g gp="| grep -i"
