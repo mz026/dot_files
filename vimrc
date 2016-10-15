@@ -94,6 +94,9 @@ set secure          " disable unsafe commands in local .vimrc files
 " command mode abbreviations.
 cab bf buffers
 
+" typo correction
+ab reqwuest request
+ab creaste create
 
 " ========== Personal mappings ==============
 " set leader to ,
