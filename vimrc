@@ -106,9 +106,6 @@ let g:mapleader=","
 " map ,gst to fugitive Gstatus
 nnoremap <leader>gst :Gstatus<cr>
 
-" fix tag binding issue
-nnoremap <C-]> <C-]>
-
 " map H, L to switch tab
 nnoremap H <c-PageUp>
 nnoremap L <c-PageDown>
