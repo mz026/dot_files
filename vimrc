@@ -2,73 +2,68 @@ set nocompatible               " be iMproved
 set nomodeline
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.fzf
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle
 " required!
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'xmledit'
-Plugin 'The-NERD-tree'
-Plugin 'php.vim--Hodge'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-endwise'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'surround.vim'
-Plugin 'EasyMotion'
-Plugin 'ervandew/supertab'
-Plugin 'tComment'
-Plugin 'bingaman/vim-sparkup'
-Plugin 'vim-coffee-script'
+Plug 'xmledit'
+Plug 'The-NERD-tree'
+Plug 'php.vim--Hodge'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-endwise'
+Plug 'vim-scripts/taglist.vim'
+Plug 'jiangmiao/auto-pairs', { 'tag': 'v1.3.0' }
+Plug 'surround.vim'
+Plug 'EasyMotion'
+Plug 'ervandew/supertab'
+Plug 'tComment'
+Plug 'bingaman/vim-sparkup'
+Plug 'vim-coffee-script'
 
 "vim-snipmate dependencies
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'mz026/snipmate-snippets'
-Plugin 'mz026/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'mz026/snipmate-snippets'
+Plug 'mz026/vim-snipmate'
 
-Plugin 'matchit.zip'
-Plugin 'HTML5-Syntax-File'
-Plugin 'Handlebars'
-Plugin 'groenewege/vim-less'
-Plugin 'dbext.vim'
-Plugin 'css3-syntax-plus'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-rails'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'janko-m/vim-test'
+Plug 'matchit.zip'
+Plug 'HTML5-Syntax-File'
+Plug 'Handlebars'
+Plug 'groenewege/vim-less'
+Plug 'dbext.vim'
+Plug 'css3-syntax-plus'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-rails'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'janko-m/vim-test'
 
 " rubyblock depends on textobj-user
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'rking/ag.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'vim-ruby/vim-ruby'
+Plug 'rking/ag.vim'
 
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'dyng/ctrlsf.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'chriskempson/base16-vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'wavded/vim-stylus'
-Plugin 'scrooloose/syntastic'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'godlygeek/tabular'
-Plugin 'othree/html5.vim'
-Plugin 'mz026/vim-elixir'
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-Plugin 'FooSoft/vim-argwrap'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'chriskempson/base16-vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'digitaltoad/vim-jade'
+Plug 'wavded/vim-stylus'
+Plug 'scrooloose/syntastic'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'godlygeek/tabular'
+Plug 'othree/html5.vim'
+Plug 'mz026/vim-elixir'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'FooSoft/vim-argwrap'
 
-call vundle#end()
-filetype plugin indent on     " required!
+call plug#end()
 
 " my settings here
 syntax on
