@@ -5,15 +5,15 @@ filetype off                   " required!
 set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
-" required!
 Plug 'xmledit'
 Plug 'The-NERD-tree'
 Plug 'php.vim--Hodge'
+
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/taglist.vim'
-Plug 'jiangmiao/auto-pairs', { 'tag': 'v1.3.0' }
+Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
+
 Plug 'surround.vim'
 Plug 'EasyMotion'
 Plug 'ervandew/supertab'
@@ -62,6 +62,7 @@ Plug 'othree/html5.vim'
 Plug 'mz026/vim-elixir'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'FooSoft/vim-argwrap'
+Plug 'tpope/vim-abolish'
 
 call plug#end()
 
@@ -88,10 +89,6 @@ set secure          " disable unsafe commands in local .vimrc files
 
 " command mode abbreviations.
 cab bf buffers
-
-" typo correction
-ab reqwuest request
-ab creaste create
 
 " ========== Personal mappings ==============
 " set leader to ,
@@ -150,6 +147,10 @@ nnoremap <leader>l <c-w>w
 " so that we can do searching withing the selected block
 " http://vim.wikia.com/wiki/Search_and_replace_in_a_visual_selection
 vnoremap / <Esc>/\%V
+
+" in insert mode, map `kj` to <esc>
+imap ;; <esc>
+vmap ;; <esc>
 
 " highlight def link, to solve js object key highlighting
 " form https://github.com/pangloss/vim-javascript/issues/138
