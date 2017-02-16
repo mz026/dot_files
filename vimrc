@@ -15,7 +15,7 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 
 Plug 'surround.vim'
-Plug 'EasyMotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
 Plug 'tComment'
 Plug 'bingaman/vim-sparkup'
@@ -165,8 +165,13 @@ set diffopt+=vertical
 nmap <leader>w ,,w
 nmap <leader>e ,,e
 nmap <leader>b ,,b
+nmap <leader>ge ,,ge
 nmap <leader>j ,,j
 nmap <leader>k ,,k
+
+" remap `/` with easymotion
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " ======= colorscheme ===========
 syntax enable
