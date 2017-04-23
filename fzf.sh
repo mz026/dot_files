@@ -36,7 +36,7 @@ fshow() {
 
 # fkill - kill process
 fkill() {
-  pid=$(ps -ef | sed 1d | awk '{print $1 "\t" $2 "\t" $8}' | fzf -m | awk '{print $2}')
+  pid=$(ps -ef | sed 1d | awk '{print $1 "\t" $2 "\t" $3 "\t" $8}' | fzf -m | awk '{print $2}')
 
   if [ "x$pid" != "x" ]
   then
