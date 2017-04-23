@@ -59,10 +59,11 @@ Plug 'scrooloose/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'godlygeek/tabular'
 Plug 'othree/html5.vim'
-Plug 'mz026/vim-elixir'
+Plug 'elixir-lang/vim-elixir'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
+Plug 'haya14busa/incsearch.vim'
 
 call plug#end()
 
@@ -149,8 +150,9 @@ nnoremap <leader>l <c-w>w
 vnoremap / <Esc>/\%V
 
 " in insert mode, map `kj` to <esc>
-imap ;; <esc>
-vmap ;; <esc>
+imap <leader>d <esc>
+nmap <leader>d <esc>
+vmap <leader>d <esc>
 
 " highlight def link, to solve js object key highlighting
 " form https://github.com/pangloss/vim-javascript/issues/138
@@ -168,10 +170,6 @@ nmap <leader>b ,,b
 nmap <leader>ge ,,ge
 nmap <leader>j ,,j
 nmap <leader>k ,,k
-
-" remap `/` with easymotion
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
 
 " ======= colorscheme ===========
 syntax enable
@@ -260,7 +258,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
 
 " ====== vim-test ==================
-nmap <silent> <leader>d :TestNearest<CR>
+nmap <silent> <leader>x :TestNearest<CR>
 nmap <silent> <leader>r :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 
