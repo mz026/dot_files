@@ -2,12 +2,14 @@ set nocompatible               " be iMproved
 set nomodeline
 filetype off                   " required!
 
-set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 
 Plug 'xmledit'
 Plug 'The-NERD-tree'
 Plug 'php.vim--Hodge'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
@@ -64,6 +66,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
 Plug 'haya14busa/incsearch.vim'
+Plug 'aliou/sql-heredoc.vim'
 
 call plug#end()
 
@@ -267,11 +270,16 @@ set backupcopy=yes
 
 " ===== FZF =================
 nmap <leader>t :FZF<cr>
-let $FZF_DEFAULT_COMMAND='ag -l -g ""'
+imap <leader>z <plug>(fzf-complete-file-ag)
+
+nmap <leader>f :Find <C-R><C-W>
+let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
 
 " ====== ctrlsf ==================
 let g:ctrlsf_auto_close = 0
-
+map <leader><s-f> <Plug>CtrlSFCwordPath
 
 " ====== airline ================
 let g:airline#extensions#whitespace#checks = []
@@ -314,3 +322,5 @@ nnoremap <silent> <leader>z :ArgWrap<CR>
 
 " ======== NERD-tree ====================
 let g:NERDTreeWinSize = 40
+
+
