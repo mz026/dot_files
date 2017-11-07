@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow git-extras zsh-syntax-highlighting)
+plugins=(git git-extras zsh-syntax-highlighting github)
 source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -103,5 +103,6 @@ BASE16_SHELL="$HOME/codes/lib/base16-shell/base16-tomorrow.dark.sh"
 
 source $HOME/codes/lib/z/z.sh
 source $HOME/.dot_files/fzf.sh
+source $HOME/.dot_files/git-flow-completion.zsh
 
 unset GREP_OPTIONS
