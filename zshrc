@@ -30,7 +30,7 @@ set -o vi
 
 # general aliases
 alias l='ls -CF'
-alias ls='ls --color'
+alias ls='ls -G'
 alias cl='clear'
 alias ll='ls -lh'
 alias vi='vim -X'
@@ -95,7 +95,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Base16 Shell
-BASE16_SHELL="$HOME/codes/lib/base16-shell/base16-tomorrow.dark.sh"
+BASE16_SHELL="$HOME/codes/lib/base16-shell/scripts/base16-railscasts.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 # load less color config
 . $HOME/.dot_files/less_color.bash
@@ -106,3 +106,5 @@ source $HOME/.dot_files/fzf.sh
 source $HOME/.dot_files/git-flow-completion.zsh
 
 unset GREP_OPTIONS
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

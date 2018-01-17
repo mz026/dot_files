@@ -4,11 +4,10 @@ filetype off                   " required!
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'xmledit'
-Plug 'The-NERD-tree'
-Plug 'php.vim--Hodge'
+Plug 'vim-scripts/xmledit'
+Plug 'vim-scripts/The-NERD-tree'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-fugitive'
@@ -16,12 +15,11 @@ Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/taglist.vim'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 
-Plug 'surround.vim'
+Plug 'vim-scripts/surround.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
-Plug 'tComment'
+Plug 'vim-scripts/tComment'
 Plug 'bingaman/vim-sparkup'
-Plug 'vim-coffee-script'
 
 "vim-snipmate dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -29,12 +27,11 @@ Plug 'tomtom/tlib_vim'
 Plug 'mz026/snipmate-snippets'
 Plug 'mz026/vim-snipmate'
 
-Plug 'matchit.zip'
-Plug 'HTML5-Syntax-File'
-Plug 'Handlebars'
+Plug 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/HTML5-Syntax-File'
 Plug 'groenewege/vim-less'
-Plug 'dbext.vim'
-Plug 'css3-syntax-plus'
+Plug 'vim-scripts/dbext.vim'
+Plug 'vim-scripts/css3-syntax-plus'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-rails'
@@ -178,7 +175,7 @@ nmap <leader>k ,,k
 syntax enable
 set background=dark
 let base16colorspace=256
-colorscheme base16-tomorrow
+colorscheme base16-railscasts
 set t_Co=256
 
 
