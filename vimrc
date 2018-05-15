@@ -43,8 +43,6 @@ Plug 'janko-m/vim-test'
 " rubyblock depends on textobj-user
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'vim-ruby/vim-ruby'
-Plug 'rking/ag.vim'
 
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'dyng/ctrlsf.vim'
@@ -55,7 +53,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'digitaltoad/vim-jade'
 Plug 'wavded/vim-stylus'
 Plug 'scrooloose/syntastic'
-Plug 'ntpeters/vim-better-whitespace'
+Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
 Plug 'othree/html5.vim'
 Plug 'elixir-lang/vim-elixir'
@@ -64,10 +62,12 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'aliou/sql-heredoc.vim'
+Plug 'tomlion/vim-solidity'
 
 call plug#end()
 
 " my settings here
+set regexpengine=2
 syntax on
 set expandtab
 set shiftwidth=2
@@ -175,7 +175,7 @@ nmap <leader>k ,,k
 syntax enable
 set background=dark
 let base16colorspace=256
-colorscheme base16-railscasts
+colorscheme base16-woodland
 set t_Co=256
 
 
@@ -206,7 +206,7 @@ nnoremap <space> za
 au BufNewFile,BufRead *.html nmap <leader>f zfit
 
 " ========= IncSearch style
-hi IncSearch term=reverse cterm=reverse ctermfg=1
+hi IncSearch term=reverse cterm=reverse ctermfg=1 ctermbg=10
 
 " ========= Plugins settings ===================
 " scss syntax, located in .vim/syntax/
@@ -307,8 +307,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
+" let g:syntastic_javascript_checkers = ['standard']
+" let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " ========= jsx syntax ==================
 let g:jsx_ext_required = 0
