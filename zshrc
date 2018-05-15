@@ -18,7 +18,7 @@ function git_prompt() {
   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-    echo "[%{$FG[012]%}${ref#refs/heads/}%{$reset_color%}-%{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}]$(parse_git_dirty)"
+    echo "[%{$fg[blue]%}${ref#refs/heads/}%{$reset_color%}-%{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}]$(parse_git_dirty)"
   fi
 }
 
@@ -95,7 +95,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Base16 Shell
-BASE16_SHELL="$HOME/codes/lib/base16-shell/scripts/base16-railscasts.sh"
+BASE16_SHELL="$HOME/codes/lib/base16-shell/scripts/base16-woodland.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 # load less color config
 . $HOME/.dot_files/less_color.bash
@@ -108,3 +108,5 @@ source $HOME/.dot_files/git-flow-completion.zsh
 unset GREP_OPTIONS
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+setopt HIST_IGNORE_ALL_DUPS
