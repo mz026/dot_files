@@ -1,3 +1,10 @@
 # v and y like vi in copy-mode
 bind-key -t vi-copy 'v' begin-selection
 bind -t vi-copy y copy-pipe 'xclip -in -selection clipboard'
+
+# ctrl + arrow to resize pane
+bind-key -n C-Left resize-pane -L 3
+bind-key -n C-Right resize-pane -R 3
+bind-key -n C-Up resize-pane -U 3
+bind-key -n C-Down resize-pane -D 3
+
