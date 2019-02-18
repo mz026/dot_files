@@ -1,9 +1,9 @@
 " put this file under .vim/after/plugin/
 
-Abolish mentro{,s,_id,_ids} mentor{}
+Abolish men{tro,otr}{,s,_id,_ids} men{tor}{}
 Abolish creaste{,_list} create{}
-Abolish reqwuest request
-Abolish reqwuire require
+Abolish reqwu{est,ire} requ{}
 Abolish resopnse response
-Abolish referree referee
+Abolish referree{,s,_id,_ids} referee{}
 Abolish commision commission
+Abolish uesr{,s,_id,_ids} user{}

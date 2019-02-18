@@ -41,5 +41,3 @@
   diffFilter = diff-so-fancy
 [gitflow "feature.finish"]
 	keepremote = yes
-[gitflow "bugfix.finish"]
-	keepremote = yes

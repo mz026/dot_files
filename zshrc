@@ -95,7 +95,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # Base16 Shell
-BASE16_SHELL="$HOME/codes/lib/base16-shell/scripts/base16-woodland.sh"
+BASE16_SHELL="$HOME/codes/lib/base16-shell/scripts/base16-tomorrow-night.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 # load less color config
 . $HOME/.dot_files/less_color.bash

@@ -52,7 +52,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'digitaltoad/vim-jade'
 Plug 'wavded/vim-stylus'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
 Plug 'othree/html5.vim'
@@ -65,6 +65,7 @@ Plug 'aliou/sql-heredoc.vim'
 Plug 'tomlion/vim-solidity'
 
 call plug#end()
+
 
 " my settings here
 set regexpengine=2
@@ -175,7 +176,8 @@ nmap <leader>k ,,k
 syntax enable
 set background=dark
 let base16colorspace=256
-colorscheme base16-woodland
+" colorscheme base16-woodland
+colorscheme base16-tomorrow-night
 set t_Co=256
 
 
@@ -302,13 +304,12 @@ let g:multi_cursor_quit_key='<Esc>'
 
 call serverlist()
 
-" =========== syntastic ===========
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" let g:syntastic_javascript_checkers = ['standard']
-" let g:syntastic_javascript_eslint_exec = 'eslint_d'
+" ========== ale linter ===========
+let g:ale_linters = {
+\   'ruby': ['ruby']
+\}
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 
 " ========= jsx syntax ==================
 let g:jsx_ext_required = 0
