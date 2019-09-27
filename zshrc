@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras zsh-syntax-highlighting github)
+plugins=(git git-extras zsh-syntax-highlighting github kubectl)
 source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
