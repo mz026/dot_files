@@ -1,5 +1,7 @@
+bindkey -s ,d '\e'
 alias ls='ls -G'
 alias vim='/usr/local/bin/vim'
 alias ctags="`brew --prefix`/bin/ctags"
-export PATH=$HOME/Library/Python/2.7/bin:$PATH
-export PATH=$HOME/Library/Python/3.7/bin:$PATH
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
