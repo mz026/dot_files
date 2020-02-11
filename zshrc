@@ -110,3 +110,6 @@ unset GREP_OPTIONS
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 setopt HIST_IGNORE_ALL_DUPS
+
+# map ,d to esc in commandline
+bindkey -s ,d '\e'
