@@ -62,7 +62,6 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'aliou/sql-heredoc.vim'
-Plug 'tomlion/vim-solidity'
 
 call plug#end()
 
