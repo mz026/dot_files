@@ -1,6 +1,6 @@
 [alias]
 	co = checkout
-  br = --no-pager branch
+  br = !git --no-pager branch
   ci = commit
   aa = add .
   st = status

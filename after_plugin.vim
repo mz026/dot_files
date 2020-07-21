@@ -7,3 +7,4 @@ Abolish resopnse response
 Abolish referree{,s,_id,_ids} referee{}
 Abolish commision commission
 Abolish uesr{,s,_id,_ids} user{}
+Abolish c{o,a}n{o,a}nical c{a}n{o}nical

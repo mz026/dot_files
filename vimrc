@@ -10,7 +10,7 @@ Plug 'vim-scripts/The-NERD-tree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', { 'commit': '2564c37' }
 Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/taglist.vim'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
@@ -62,6 +62,7 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
 Plug 'haya14busa/incsearch.vim'
 Plug 'aliou/sql-heredoc.vim'
+Plug 'eugen0329/vim-esearch'
 
 call plug#end()
 
