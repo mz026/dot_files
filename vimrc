@@ -24,8 +24,8 @@ Plug 'bingaman/vim-sparkup'
 "vim-snipmate dependencies
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'mz026/snipmate-snippets'
-Plug 'mz026/vim-snipmate'
+Plug 'garbas/vim-snipmate'
+Plug 'mz026/vim-snippets'
 
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/HTML5-Syntax-File'
@@ -225,7 +225,7 @@ nmap <leader>c <C-_><C-_>
 vmap <leader>c <C-_><C-_>
 
 "change vim-snipmate trigger to ,, to avoid collision with SuperTab.
-let g:snips_trigger_key="<leader><leader>"
+imap <leader><leader> <Plug>snipMateNextOrTrigger
 
 "change sparkup trigger
 let g:sparkupExecuteMapping='<leader>s'
