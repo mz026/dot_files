@@ -1,5 +1,4 @@
 alias ls='ls -G'
-alias vim='/usr/local/bin/vim'
 alias ctags="`brew --prefix`/bin/ctags"
 
 export LC_ALL=en_US.UTF-8

@@ -161,7 +161,10 @@ hi def link jsObjectKey Label
 hi def link jsFunctionKey Label
 
 " make diff vertical
-set diffopt+=vertical
+if &diff
+  set diffopt-=internal
+  set diffopt+=vertical
+endif
 
 " ======= easy motion =============
 " map ,w ,b ,j ,k to easyMotion w b j k
