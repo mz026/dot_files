@@ -229,6 +229,9 @@ vmap <leader>c <C-_><C-_>
 
 "change vim-snipmate trigger to ,, to avoid collision with SuperTab.
 imap <leader><leader> <Plug>snipMateNextOrTrigger
+let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['typescript'] = 'typescript,javascript-jasmine'
 
 "change sparkup trigger
 let g:sparkupExecuteMapping='<leader>s'
@@ -311,8 +314,8 @@ call serverlist()
 let g:ale_linters = {
 \   'ruby': ['ruby']
 \}
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
+highlight ALEError ctermbg=none cterm=underline
+
 
 " ========= jsx syntax ==================
 let g:jsx_ext_required = 0
