@@ -1,3 +1,4 @@
+export ZSH_DISABLE_COMPFIX=true
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
@@ -94,13 +95,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# Base16 Shell
-BASE16_SHELL="$HOME/codes/lib/base16-shell/scripts/base16-tomorrow-night.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-# load less color config
-. $HOME/.dot_files/less_color.bash
-
-
 source $HOME/codes/lib/z/z.sh
 source $HOME/.dot_files/fzf.sh
 source $HOME/.dot_files/git-flow-completion.zsh
@@ -116,3 +110,22 @@ bindkey -s ,d '\e'
 
 # set default editor
 export EDITOR=vim
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+base16_tomorrow-night
+
+# asdf
+. $HOME/.asdf/asdf.sh
+
+# bindkey fix for vim mode: https://superuser.com/questions/476532/how-can-i-make-zshs-vi-mode-behave-more-like-bashs-vi-mode
+vi-search-fix() {
+  zle vi-cmd-mode
+  zle .vi-history-search-backward
+}
+autoload vi-search-fix
+zle -N vi-search-fix
+bindkey -M viins '\e/' vi-search-fix

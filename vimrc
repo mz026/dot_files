@@ -312,7 +312,8 @@ call serverlist()
 
 " ========== ale linter ===========
 let g:ale_linters = {
-\   'ruby': ['ruby']
+\   'ruby': ['ruby'],
+\   'typescript': ['tsserver']
 \}
 highlight ALEError ctermbg=none cterm=underline
 
