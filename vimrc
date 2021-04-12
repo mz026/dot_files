@@ -47,7 +47,8 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'chriskempson/base16-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'digitaltoad/vim-jade'
@@ -60,9 +61,8 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
-Plug 'haya14busa/incsearch.vim'
+Plug 'qxxxb/vim-searchhi'
 Plug 'aliou/sql-heredoc.vim'
-Plug 'eugen0329/vim-esearch'
 
 call plug#end()
 
@@ -98,7 +98,11 @@ let mapleader=","
 let g:mapleader=","
 
 " map ,gst to fugitive Gstatus
-nnoremap <leader>gst :Gstatus<cr>
+nnoremap <leader>gst :Gstatus<cr>30+
+
+" https://github.com/thoughtbot/dotfiles/issues/655
+set diffopt-=internal
+set diffopt+=vertical
 
 " map H, L to switch tab
 nnoremap H <c-PageUp>
@@ -121,8 +125,6 @@ vmap <C-y> "+y
 nnoremap <silent> <leader>H :-tabmove<CR>
 nnoremap <silent> <leader>L :+tabmove<CR>
 
-" ,/ to close search hilight
-nmap <leader>/ :nohl<CR>
 
 " T to zt, put current line to the top of screen.
 nmap T zt
@@ -179,8 +181,7 @@ nmap <leader>k ,,k
 syntax enable
 set background=dark
 let base16colorspace=256
-" colorscheme base16-woodland
-colorscheme base16-tomorrow-night
+colorscheme base16-railscasts
 set t_Co=256
 
 
@@ -195,8 +196,8 @@ endif
 highlight MatchParen cterm=underline ctermfg=none ctermbg=none
 
 
-"for vsp 80 column width
-set winwidth=100
+" "for vsp 80 column width
+" set winwidth=100
 set previewheight=30
 
 " =========== folding methods ==============
@@ -206,9 +207,6 @@ hi Folded ctermbg=0
 
 " space in normal mode to alternate folding.
 nnoremap <space> za
-
-" html folding
-au BufNewFile,BufRead *.html nmap <leader>f zfit
 
 " ========= IncSearch style
 hi IncSearch term=reverse cterm=reverse ctermfg=1 ctermbg=10
@@ -243,11 +241,9 @@ set bs=2
 
 " ========== Tabline settings ==============
 set showtabline=2
-hi TabLineFill ctermbg=235
-hi TabLine ctermfg=247 ctermbg=237
+" hi TabLineFill ctermbg=235
+" hi TabLine ctermfg=247 ctermbg=237
 hi TabLineSel cterm=bold ctermfg=237 ctermbg=4
-
-
 
 " ========= dbext settings ===================
 let g:dbext_default_type ='PGSQL'
@@ -324,8 +320,27 @@ let g:jsx_ext_required = 0
 " ======== Argwrap ====================
 nnoremap <silent> <leader>z :ArgWrap<CR>
 
-
 " ======== NERD-tree ====================
 let g:NERDTreeWinSize = 40
 
+" searchhi
+nmap n <Plug>(searchhi-n)
+nmap N <Plug>(searchhi-N)
+nmap * <Plug>(searchhi-*)
+nmap g* <Plug>(searchhi-g*)
+nmap # <Plug>(searchhi-#)
+nmap g# <Plug>(searchhi-g#)
+nmap gd <Plug>(searchhi-gd)
+nmap gD <Plug>(searchhi-gD)
 
+vmap n <Plug>(searchhi-v-n)
+vmap N <Plug>(searchhi-v-N)
+vmap * <Plug>(searchhi-v-*)
+vmap g* <Plug>(searchhi-v-g*)
+vmap # <Plug>(searchhi-v-#)
+vmap g# <Plug>(searchhi-v-g#)
+vmap gd <Plug>(searchhi-v-gd)
+vmap gD <Plug>(searchhi-v-gD)
+
+" ,/ to close search hilight
+nmap <leader>/ <Plug>(searchhi-clear-all)
