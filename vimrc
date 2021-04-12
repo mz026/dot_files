@@ -230,6 +230,7 @@ imap <leader><leader> <Plug>snipMateNextOrTrigger
 let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['typescript'] = 'typescript,javascript-jasmine'
+let g:snipMate = { 'snippet_version' : 1 }
 
 "change sparkup trigger
 let g:sparkupExecuteMapping='<leader>s'
