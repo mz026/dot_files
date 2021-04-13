@@ -228,8 +228,6 @@ vmap <leader>c <C-_><C-_>
 "change vim-snipmate trigger to ,, to avoid collision with SuperTab.
 imap <leader><leader> <Plug>snipMateNextOrTrigger
 let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['typescript'] = 'typescript,javascript-jasmine'
 let g:snipMate = { 'snippet_version' : 1 }
 
 "change sparkup trigger
@@ -277,6 +275,7 @@ imap <leader>z <plug>(fzf-complete-file-ag)
 nmap <leader>f :Find <C-R><C-W>
 let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+let g:fzf_layout = { 'down': '40%' }
 
 
 " ====== ctrlsf ==================
