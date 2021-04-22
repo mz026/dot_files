@@ -181,7 +181,7 @@ nmap <leader>k ,,k
 syntax enable
 set background=dark
 let base16colorspace=256
-colorscheme base16-railscasts
+colorscheme base16-oceanicnext
 set t_Co=256
 
 
@@ -240,9 +240,6 @@ set bs=2
 
 " ========== Tabline settings ==============
 set showtabline=2
-" hi TabLineFill ctermbg=235
-" hi TabLine ctermfg=247 ctermbg=237
-hi TabLineSel cterm=bold ctermfg=237 ctermbg=4
 
 " ========= dbext settings ===================
 let g:dbext_default_type ='PGSQL'
@@ -285,7 +282,7 @@ map <leader><s-f> <Plug>CtrlSFCwordPath
 " ====== airline ================
 let g:airline#extensions#whitespace#checks = []
 
-let g:airline_theme = 'base16'
+let g:airline_theme = 'base16_oceanicnext'
 " airline-powerline-chars
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
