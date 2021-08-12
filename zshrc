@@ -2,7 +2,7 @@ export ZSH_DISABLE_COMPFIX=true
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras zsh-syntax-highlighting github kubectl asdf)
+plugins=(git git-extras zsh-syntax-highlighting github kubectl)
 source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -117,9 +117,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 base16_oceanicnext
-
-# asdf
-. $HOME/.asdf/asdf.sh
 
 # bindkey fix for vim mode: https://superuser.com/questions/476532/how-can-i-make-zshs-vi-mode-behave-more-like-bashs-vi-mode
 vi-search-fix() {
