@@ -18,12 +18,12 @@ Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 Plug 'vim-scripts/surround.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
-Plug 'vim-scripts/tComment'
+Plug 'tpope/vim-commentary'
 Plug 'bingaman/vim-sparkup'
 
 "vim-snipmate dependencies
-Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'mz026/vim-snippets'
 
@@ -50,9 +50,9 @@ Plug 'pangloss/vim-javascript'
 " Plug 'mxw/vim-jsx'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'chriskempson/base16-vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'digitaltoad/vim-jade'
-Plug 'wavded/vim-stylus'
+" Plug 'terryma/vim-multiple-cursors'
+" Plug 'digitaltoad/vim-jade'
+" Plug 'wavded/vim-stylus'
 Plug 'w0rp/ale'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
@@ -222,8 +222,10 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
 "T-comment alias, map ,, to ctrl_ctrl_
-nmap <leader>c <C-_><C-_>
-vmap <leader>c <C-_><C-_>
+" nmap <leader>c <C-_><C-_>
+" vmap <leader>c <C-_><C-_>
+nmap <leader>c gcc
+vmap <leader>c gc
 
 "change vim-snipmate trigger to ,, to avoid collision with SuperTab.
 imap <leader><leader> <Plug>snipMateNextOrTrigger
