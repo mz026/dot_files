@@ -1,0 +1,87 @@
+#!/usr/bin/env ruby
+
+class Installer
+  DOT_FOLDER = "~/.dot_files"
+  HOME = "~"
+
+  def log msg
+    puts msg
+  end
+
+  def link_file from_name, to_name
+    log "Linking file: #{from_name} <---> #{to_name}"
+    system "ln -s #{DOT_FOLDER}/#{from_name} #{HOME}/#{to_name}"
+  end
+
+
+  def inputrc
+    link_file("inputrc", ".inputrc")
+  end
+
+  def homebrew
+    system '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+  end
+
+  def zsh
+    system 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+    system "echo 'source #{DOT_FOLDER}/zshrc' > ~/.zshrc"
+    system "echo 'source #{DOT_FOLDER}/zshrc.mac' >> ~/.zshrc"
+  end
+
+  def vim
+    vimplug
+    brew_install('rg')
+  end
+
+  def brew_install pkg
+    system "brew install #{pkg}"
+  end
+
+  def vimplug
+    system 'curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    link_file('vimrc', '.vimrc')
+    system "vim -S #{DOT_FOLDER}/vim.lock"
+  end
+
+  def tmux
+    brew_install('tmux')
+    # install tpm
+    system "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
+    system "echo 'source #{DOT_FOLDER}/tmux.conf' > ~/.tmux.conf"
+    system "echo 'source #{DOT_FOLDER}/tmux.conf.mac' >> ~/.tmux.conf"
+    log('press `prefix-I` to install plugins')
+  end
+
+  def z
+    system "mkdir -p #{HOME}/codes/lib/z"
+    system "curl https://raw.githubusercontent.com/rupa/z/master/z.sh --output #{HOME}/codes/lib/z/z.sh"
+  end
+
+  def base16_shell
+    system "git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell"
+  end
+
+  def git
+    link_file('gitconfig', '.gitconfig')
+    link_file('gitconfig_global', '.gitconfig_global')
+  end
+
+  def zsh_syntax_highlight
+    system "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+  end
+
+  def go
+    homebrew
+    inputrc
+    zsh_syntax_highlight
+    base16_shell
+    zsh
+    git
+    z
+    tmux
+    vim
+  end
+end
+
+installer = Installer.new
+installer.go
