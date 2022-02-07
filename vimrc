@@ -63,6 +63,7 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
 Plug 'qxxxb/vim-searchhi'
 Plug 'aliou/sql-heredoc.vim'
+Plug 'Quramy/tsuquyomi'
 
 call plug#end()
 
@@ -343,3 +344,10 @@ vmap gD <Plug>(searchhi-v-gD)
 
 " ,/ to close search hilight
 nmap <leader>/ <Plug>(searchhi-clear-all)
+
+" omnicompletion and supertab
+" https://vim.fandom.com/wiki/Omni_completion_popup_menu
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
