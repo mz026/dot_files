@@ -1,5 +1,8 @@
 alias ls='ls -G'
 alias ctags="`brew --prefix`/bin/ctags"
+function x8664() {
+  arch -x86_64 "$@"
+}
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
