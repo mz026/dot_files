@@ -47,12 +47,8 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'chriskempson/base16-vim'
-" Plug 'terryma/vim-multiple-cursors'
-" Plug 'digitaltoad/vim-jade'
-" Plug 'wavded/vim-stylus'
 Plug 'w0rp/ale'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
@@ -63,7 +59,7 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
 Plug 'qxxxb/vim-searchhi'
 Plug 'aliou/sql-heredoc.vim'
-Plug 'Quramy/tsuquyomi'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 call plug#end()
 
@@ -345,9 +341,17 @@ vmap gD <Plug>(searchhi-v-gD)
 " ,/ to close search hilight
 nmap <leader>/ <Plug>(searchhi-clear-all)
 
-" omnicompletion and supertab
-" https://vim.fandom.com/wiki/Omni_completion_popup_menu
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-let g:SuperTabDefaultCompletionType = "context"
+" <leader>1 to refresh vimrc
+nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
+
+" coc
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+let g:coc_disable_transparent_cursor = 1
