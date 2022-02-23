@@ -17,23 +17,15 @@ Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 
 Plug 'vim-scripts/surround.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-commentary'
-Plug 'bingaman/vim-sparkup'
 
-"vim-snipmate dependencies
-Plug 'tomtom/tlib_vim'
+" ===== snipmate and its friends ======
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
-Plug 'mz026/vim-snippets'
-
+Plug 'honza/vim-snippets'
+" =================================
 Plug 'vim-scripts/matchit.zip'
-Plug 'vim-scripts/HTML5-Syntax-File'
-Plug 'groenewege/vim-less'
-Plug 'vim-scripts/dbext.vim'
-Plug 'vim-scripts/css3-syntax-plus'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'tpope/vim-cucumber'
 Plug 'tpope/vim-rails'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bling/vim-airline'
@@ -52,7 +44,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'w0rp/ale'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
-Plug 'othree/html5.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'FooSoft/vim-argwrap'
@@ -85,9 +76,6 @@ set encoding=utf8
 " enable project level vimrc
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
-
-" command mode abbreviations.
-cab bf buffers
 
 " ========== Personal mappings ==============
 " set leader to ,
@@ -122,15 +110,8 @@ vmap <C-y> "+y
 nnoremap <silent> <leader>H :-tabmove<CR>
 nnoremap <silent> <leader>L :+tabmove<CR>
 
-
 " T to zt, put current line to the top of screen.
 nmap T zt
-
-" ctrl-a to select all
-nmap <C-a> ggVG
-
-" ,v to gv
-nmap <leader>v gv
 
 " <leader>s to sort in visual mode
 vmap <leader>s :sort /\%V/<CR>
@@ -154,11 +135,6 @@ imap <leader>d <esc>
 nmap <leader>d <esc>
 vmap <leader>d <esc>
 
-" highlight def link, to solve js object key highlighting
-" form https://github.com/pangloss/vim-javascript/issues/138
-hi def link jsObjectKey Label
-hi def link jsFunctionKey Label
-
 " make diff vertical
 if &diff
   set diffopt-=internal
@@ -181,7 +157,6 @@ let base16colorspace=256
 colorscheme base16-oceanicnext
 set t_Co=256
 
-
 " ========== 80 columns =====================
 " 80 column highlight
 if v:version >= 703
@@ -189,13 +164,12 @@ if v:version >= 703
   hi ColorColumn ctermfg=grey ctermbg=235
 endif
 
-" ========= match highlight ================
-highlight MatchParen cterm=underline ctermfg=none ctermbg=none
-
-
 " "for vsp 80 column width
 " set winwidth=100
 set previewheight=30
+
+" ========= match highlight ================
+highlight MatchParen cterm=underline ctermfg=none ctermbg=none
 
 " =========== folding methods ==============
 " fold highlight
@@ -207,10 +181,6 @@ nnoremap <space> za
 
 " ========= IncSearch style
 hi IncSearch term=reverse cterm=reverse ctermfg=1 ctermbg=10
-
-" ========= Plugins settings ===================
-" scss syntax, located in .vim/syntax/
-au BufRead,BufNewFile *.scss set filetype=scss
 
 " ruby complete
 " http://chloerei.blogbus.com/logs/33034033.html
@@ -224,28 +194,16 @@ let g:rubycomplete_rails = 1
 nmap <leader>c gcc
 vmap <leader>c gc
 
-"change vim-snipmate trigger to ,, to avoid collision with SuperTab.
-imap <leader><leader> <Plug>snipMateNextOrTrigger
-let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
-let g:snipMate = { 'snippet_version' : 1 }
-
 "change sparkup trigger
 let g:sparkupExecuteMapping='<leader>s'
 
 " ========== work around and others ==============
 "fix backspace not working in 7.3
 "http://linux-journal.blogspot.com/2005/04/fix-vim-backspace-doesnt-work.html
-set bs=2
+" set bs=2
 
 " ========== Tabline settings ==============
 set showtabline=2
-
-" ========= dbext settings ===================
-let g:dbext_default_type ='PGSQL'
-let g:dbext_default_buffer_lines=20
-
-" map ,q (query) in visual mode to execute slected sql
-vmap <leader>q :DBExecRangeSQL<cr>
 
 " ======= indent guide settings ==========
 let g:indent_guides_start_level = 2
@@ -261,12 +219,8 @@ nmap <silent> <leader>x :TestNearest<CR>
 nmap <silent> <leader>r :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 
-" ======= set backupcopy=yes for karma test runner ========
-set backupcopy=yes
-
 " ===== FZF =================
 nmap <leader>t :FZF<cr>
-imap <leader>z <plug>(fzf-complete-file-ag)
 
 nmap <leader>f :Find <C-R><C-W>
 let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
@@ -293,22 +247,12 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 
-" multi-cursor
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-j>'
-let g:multi_cursor_prev_key='<C-k>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-call serverlist()
-
 " ========== ale linter ===========
 let g:ale_linters = {
 \   'ruby': ['ruby'],
 \   'typescript': ['tsserver']
 \}
 highlight ALEError ctermbg=none cterm=underline
-
 
 " ========= jsx syntax ==================
 let g:jsx_ext_required = 0
@@ -344,7 +288,7 @@ nmap <leader>/ <Plug>(searchhi-clear-all)
 " <leader>1 to refresh vimrc
 nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
 
-" coc
+"================= coc ===================
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
@@ -355,3 +299,24 @@ nmap <silent> gr <Plug>(coc-references)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 let g:coc_disable_transparent_cursor = 1
+
+" use <tab> for trigger completion and navigate to the next complete item
+" https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <silent><expr> <S-Tab>
+      \ pumvisible() ? "\<C-p>" :
+      \ <SID>check_back_space() ? "\<S-Tab>" :
+      \ coc#refresh()
+
+" ========== vim-snipMate =======
+let g:snipMate = { 'snippet_version' : 1 }
+imap <leader><leader> <Plug>snipMateNextOrTrigger
