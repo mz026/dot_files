@@ -130,6 +130,9 @@ nnoremap <leader>l <c-w>w
 " http://vim.wikia.com/wiki/Search_and_replace_in_a_visual_selection
 vnoremap / <Esc>/\%V
 
+" ,v to select previous selected area
+nmap <leader>v gv
+
 " in insert mode, map `kj` to <esc>
 imap <leader>d <esc>
 nmap <leader>d <esc>
@@ -178,6 +181,11 @@ hi Folded ctermbg=0
 
 " space in normal mode to alternate folding.
 nnoremap <space> za
+
+" highlight def link, to solve js object key highlighting
+" form https://github.com/pangloss/vim-javascript/issues/138
+hi def link jsObjectKey Label
+hi def link jsFunctionKey Label
 
 " ========= IncSearch style
 hi IncSearch term=reverse cterm=reverse ctermfg=1 ctermbg=10
@@ -250,7 +258,8 @@ let g:airline_symbols.readonly = ''
 " ========== ale linter ===========
 let g:ale_linters = {
 \   'ruby': ['ruby'],
-\   'typescript': ['tsserver']
+\   'typescript': ['tsserver'],
+\   'sh': ['shellcheck']
 \}
 highlight ALEError ctermbg=none cterm=underline
 
