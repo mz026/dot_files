@@ -23,7 +23,7 @@ Plug 'tpope/vim-commentary'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
+Plug 'mz026/vim-snippets'
 " =================================
 Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-rails'
@@ -329,3 +329,6 @@ inoremap <silent><expr> <S-Tab>
 " ========== vim-snipMate =======
 let g:snipMate = { 'snippet_version' : 1 }
 imap <leader><leader> <Plug>snipMateNextOrTrigger
+let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['javascript'] = 'javascript-jasmine'
