@@ -10,7 +10,8 @@ Plug 'vim-scripts/The-NERD-tree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 
-Plug 'tpope/vim-fugitive', { 'commit': '2564c37' }
+" Plug 'tpope/vim-fugitive', { 'commit': '2564c37' }
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'vim-scripts/taglist.vim'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
@@ -51,6 +52,7 @@ Plug 'tpope/vim-abolish'
 Plug 'qxxxb/vim-searchhi'
 Plug 'aliou/sql-heredoc.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'tpope/vim-projectionist'
 
 call plug#end()
 
@@ -81,9 +83,6 @@ set secure          " disable unsafe commands in local .vimrc files
 " set leader to ,
 let mapleader=","
 let g:mapleader=","
-
-" map ,gst to fugitive Gstatus
-nnoremap <leader>gst :Gstatus<cr>30+
 
 " https://github.com/thoughtbot/dotfiles/issues/655
 set diffopt-=internal
@@ -326,9 +325,23 @@ inoremap <silent><expr> <S-Tab>
       \ <SID>check_back_space() ? "\<S-Tab>" :
       \ coc#refresh()
 
+" Use ,2 to show documentation in preview window.
+nnoremap <silent> <leader>2 :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
 " ========== vim-snipMate =======
 let g:snipMate = { 'snippet_version' : 1 }
 imap <leader><leader> <Plug>snipMateNextOrTrigger
 let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['javascript'] = 'javascript-jasmine'
+let g:snipMate.scope_aliases['typescript'] = 'javascript-jasmine'
