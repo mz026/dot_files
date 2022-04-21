@@ -23,7 +23,7 @@ function git_prompt() {
   fi
 }
 
-PROMPT='%n@%m: %{$FG[143]%}%~%{$reset_color%}
+PROMPT='%n@%m: %{$fg[green]%}%~%{$reset_color%}
 $(git_prompt)%% '
 
 # use vi to control command line
