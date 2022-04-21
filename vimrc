@@ -341,7 +341,6 @@ let g:snipMate.scope_aliases['javascript'] = 'javascript-jasmine'
 let g:snipMate.scope_aliases['typescript'] = 'javascript-jasmine'
 
 " ======= colorscheme ===========
-let g:dracula_italic=0
 syntax enable
 set background=dark
 
