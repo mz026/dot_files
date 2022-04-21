@@ -41,7 +41,6 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'chriskempson/base16-vim'
 Plug 'w0rp/ale'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
@@ -53,6 +52,8 @@ Plug 'qxxxb/vim-searchhi'
 Plug 'aliou/sql-heredoc.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-projectionist'
+
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -152,13 +153,6 @@ nmap <leader>ge ,,ge
 nmap <leader>j ,,j
 nmap <leader>k ,,k
 
-" ======= colorscheme ===========
-syntax enable
-set background=dark
-let base16colorspace=256
-colorscheme base16-oceanicnext
-set t_Co=256
-
 " ========== 80 columns =====================
 " 80 column highlight
 if v:version >= 703
@@ -242,7 +236,6 @@ map <leader><s-f> <Plug>CtrlSFCwordPath
 " ====== airline ================
 let g:airline#extensions#whitespace#checks = []
 
-let g:airline_theme = 'base16_oceanicnext'
 " airline-powerline-chars
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -257,10 +250,11 @@ let g:airline_symbols.readonly = ''
 " ========== ale linter ===========
 let g:ale_linters = {
 \   'ruby': ['ruby'],
-\   'typescript': ['tsserver'],
+\   'typescript': ['eslint'],
 \   'sh': ['shellcheck']
 \}
 highlight ALEError ctermbg=none cterm=underline
+cmap AF ALEFix
 
 " ========= jsx syntax ==================
 let g:jsx_ext_required = 0
@@ -345,3 +339,11 @@ let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['javascript'] = 'javascript-jasmine'
 let g:snipMate.scope_aliases['typescript'] = 'javascript-jasmine'
+
+" ======= colorscheme ===========
+let g:dracula_italic=0
+syntax enable
+set background=dark
+
+set t_Co=256
+colorscheme dracula
