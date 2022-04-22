@@ -4,18 +4,12 @@ filetype off                   " required!
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'vim-scripts/xmledit'
 Plug 'vim-scripts/The-NERD-tree'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
-
-" Plug 'tpope/vim-fugitive', { 'commit': '2564c37' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
-Plug 'vim-scripts/taglist.vim'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
-
 Plug 'vim-scripts/surround.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
@@ -53,7 +47,6 @@ Plug 'aliou/sql-heredoc.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sensible'
-
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
@@ -181,14 +174,6 @@ let g:rubycomplete_rails = 1
 "T-comment alias, map ,, to ctrl_ctrl_
 nmap <leader>c gcc
 vmap <leader>c gc
-
-"change sparkup trigger
-let g:sparkupExecuteMapping='<leader>s'
-
-" ========== work around and others ==============
-"fix backspace not working in 7.3
-"http://linux-journal.blogspot.com/2005/04/fix-vim-backspace-doesnt-work.html
-" set bs=2
 
 " ========== Tabline settings ==============
 set showtabline=2
