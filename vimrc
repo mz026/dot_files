@@ -47,11 +47,13 @@ Plug 'aliou/sql-heredoc.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sensible'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'git@github.com:mz026/dracula-pro-vim.git'
 
 call plug#end()
 
 
+" use the new regex engine to fix slow typescript syntax highlighting (https://jameschambers.co.uk/vim-typescript-slow)
+set re=0
 set expandtab
 set shiftwidth=2
 set softtabstop=2
@@ -212,6 +214,7 @@ let g:airline#extensions#whitespace#checks = []
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+let g:airline_theme = 'dracula_pro'
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -317,4 +320,5 @@ syntax enable
 set background=dark
 
 set t_Co=256
-colorscheme dracula
+let g:dracula_colorterm = 0
+colorscheme dracula_pro_morbius
