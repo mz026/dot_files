@@ -52,29 +52,18 @@ Plug 'qxxxb/vim-searchhi'
 Plug 'aliou/sql-heredoc.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-sensible'
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
 
-" my settings here
-set regexpengine=2
-syntax on
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 set number
-set cindent
-set autoindent
-set autoread
-set noignorecase
-set incsearch
-set hlsearch
-set ruler
-set laststatus=2
-set encoding=utf8
 
 " enable project level vimrc
 set exrc            " enable per-directory .vimrc files
@@ -190,8 +179,6 @@ let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
 "T-comment alias, map ,, to ctrl_ctrl_
-" nmap <leader>c <C-_><C-_>
-" vmap <leader>c <C-_><C-_>
 nmap <leader>c gcc
 vmap <leader>c gc
 
