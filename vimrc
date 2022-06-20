@@ -54,10 +54,13 @@ call plug#end()
 " use the new regex engine to fix slow typescript syntax highlighting (https://jameschambers.co.uk/vim-typescript-slow)
 set re=0
 set expandtab
+set number
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set number
+
+" set indent to 4 for python files
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 " enable project level vimrc
 set exrc            " enable per-directory .vimrc files
