@@ -9,7 +9,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+" Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-telescope/telescope.nvim'
@@ -19,7 +20,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 Plug 'vim-scripts/surround.vim'
-" Plug 'easymotion/vim-easymotion'
 Plug 'phaazon/hop.nvim'
 Plug 'tpope/vim-commentary'
 
@@ -59,132 +59,10 @@ Plug 'git@github.com:mz026/dracula-pro-vim.git'
 
 call plug#end()
 
+source ~/.dot_files/nvim/options.vim
+source ~/.dot_files/nvim/keybindings.vim
+source ~/.dot_files/nvim/plugin_settings/hop.vim
 
-" use the new regex engine to fix slow typescript syntax highlighting (https://jameschambers.co.uk/vim-typescript-slow)
-set re=0
-set expandtab
-set number
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set termguicolors
-
-" set indent to 4 for python files
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4
-
-" enable project level vimrc
-set exrc            " enable per-directory .vimrc files
-set secure          " disable unsafe commands in local .vimrc files
-
-" ========== Personal mappings ==============
-" set leader to ,
-let mapleader=","
-let g:mapleader=","
-
-" https://github.com/thoughtbot/dotfiles/issues/655
-set diffopt-=internal
-set diffopt+=vertical
-
-" map H, L to switch tab
-nnoremap H <c-PageUp>
-nnoremap L <c-PageDown>
-
-" J and K to multiple navigate
-nmap J 5j
-vmap J 5j
-nmap K 5k
-vmap K 5k
-
-" copy and paste
-" $ vim --version | grep clipboard    must have +xterm_clipboard
-" otherwise,
-" $ sudo apt-get install vim-gnome
-nmap <C-p> "+p
-vmap <C-y> "+y
-
-"move tab to left/right by shift-<left>/<right>
-nnoremap <silent> <leader>H :-tabmove<CR>
-nnoremap <silent> <leader>L :+tabmove<CR>
-
-" T to zt, put current line to the top of screen.
-nmap T zt
-
-" <leader>s to sort in visual mode
-vmap <leader>s :sort /\%V/<CR>
-
-" map ctrl-t to open file under cursor in new tab
-nmap <C-t> <C-w>gf
-
-" map ,<C-]> to open tag in new tab
-nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
-
-nnoremap <leader>h <c-w>w
-nnoremap <leader>l <c-w>w
-
-" in visual mode, map `/target` to `<Esc>/\%Vtarget`
-" so that we can do searching withing the selected block
-" http://vim.wikia.com/wiki/Search_and_replace_in_a_visual_selection
-vnoremap / <Esc>/\%V
-
-" ,v to select previous selected area
-nmap <leader>v gv
-
-" in insert mode, map `kj` to <esc>
-imap <leader>d <esc>
-nmap <leader>d <esc>
-vmap <leader>d <esc>
-
-" make diff vertical
-if &diff
-  set diffopt-=internal
-  set diffopt+=vertical
-endif
-
-" ======= hop =============
-
-lua <<EOF
-require'hop'.setup()
-EOF
-nnoremap <leader>w <cmd>:HopWordAC<cr>
-nnoremap <leader>b <cmd>:HopWordBC<cr>
-nnoremap <leader>j <cmd>:HopLineAC<cr>
-nnoremap <leader>k <cmd>:HopLineBC<cr>
-
-" ========== 80 columns =====================
-" 80 column highlight
-if v:version >= 703
-  set colorcolumn=85
-  hi ColorColumn ctermfg=grey ctermbg=235
-endif
-
-" "for vsp 80 column width
-" set winwidth=100
-set previewheight=30
-
-" ========= match highlight ================
-highlight MatchParen cterm=underline ctermfg=none ctermbg=none
-
-" =========== folding methods ==============
-" fold highlight
-hi Folded ctermfg=gray
-hi Folded ctermbg=0
-
-" space in normal mode to alternate folding.
-nnoremap <space> za
-
-" highlight def link, to solve js object key highlighting
-" form https://github.com/pangloss/vim-javascript/issues/138
-hi def link jsObjectKey Label
-hi def link jsFunctionKey Label
-
-" ========= IncSearch style
-hi IncSearch term=reverse cterm=reverse ctermfg=1 ctermbg=10
-
-" ruby complete
-" http://chloerei.blogbus.com/logs/33034033.html
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
-let g:rubycomplete_rails = 1
 
 "commentary alias, map ,c to ctrl_ctrl_
 nmap <leader>c gcc
@@ -334,28 +212,11 @@ set t_Co=256
 let g:dracula_colorterm = 0
 colorscheme dracula_pro_morbius
 
-"=== bufferline
-lua << EOF
-require("bufferline").setup{
-  options = {
-    mode = "tabs",
-    show_close_icons = false,
-    show_buffer_close_icons = false,
-    offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-  },
+""=== barbar
+hi BufferCurrentMod guifg=#abb2bf ctermfg=248 gui=NONE cterm=NONE
 
-  highlights = {
-    fill = {
-      guifg = { attribute = "fg", highlight = "#ff0000" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
-    },
-    background = {
-      guifg = { attribute = "fg", highlight = "TabLine" },
-      guibg = { attribute = "bg", highlight = "TabLine" },
-    },
-  },
-}
-EOF
+nnoremap <silent> <leader>L <cmd>BufferMoveNext<CR>
+nnoremap <silent> <leader>H <cmd>BufferMovePrev<CR>
 
 "=== telescope
 nnoremap <leader>F <cmd>Telescope live_grep<cr><esc>
