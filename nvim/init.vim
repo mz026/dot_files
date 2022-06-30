@@ -4,13 +4,10 @@ filetype off                   " required!
 
 call plug#begin('~/.vim/plugged')
 
-" Plug 'vim-scripts/The-NERD-tree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
-" Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
-Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-telescope/telescope.nvim'
@@ -211,12 +208,6 @@ set background=dark
 set t_Co=256
 let g:dracula_colorterm = 0
 colorscheme dracula_pro_morbius
-
-""=== barbar
-hi BufferCurrentMod guifg=#abb2bf ctermfg=248 gui=NONE cterm=NONE
-
-nnoremap <silent> <leader>L <cmd>BufferMoveNext<CR>
-nnoremap <silent> <leader>H <cmd>BufferMovePrev<CR>
 
 "=== telescope
 nnoremap <leader>F <cmd>Telescope live_grep<cr><esc>
