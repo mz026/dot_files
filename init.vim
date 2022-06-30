@@ -10,11 +10,17 @@ Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'fannheyward/telescope-coc.nvim'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 Plug 'vim-scripts/surround.vim'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim'
 Plug 'tpope/vim-commentary'
 
 " ===== snipmate and its friends ======
@@ -134,14 +140,15 @@ if &diff
   set diffopt+=vertical
 endif
 
-" ======= easy motion =============
-" map ,w ,b ,j ,k to easyMotion w b j k
-nmap <leader>w ,,w
-nmap <leader>e ,,e
-nmap <leader>b ,,b
-nmap <leader>ge ,,ge
-nmap <leader>j ,,j
-nmap <leader>k ,,k
+" ======= hop =============
+
+lua <<EOF
+require'hop'.setup()
+EOF
+nnoremap <leader>w <cmd>:HopWordAC<cr>
+nnoremap <leader>b <cmd>:HopWordBC<cr>
+nnoremap <leader>j <cmd>:HopLineAC<cr>
+nnoremap <leader>k <cmd>:HopLineBC<cr>
 
 " ========== 80 columns =====================
 " 80 column highlight
@@ -241,7 +248,7 @@ nnoremap <silent> <leader>z :ArgWrap<CR>
 lua <<EOF
 require("nvim-tree").setup()
 EOF
-nnoremap <leader>n :NvimTreeToggle<cr>
+nnoremap <leader>e :NvimTreeToggle<cr>
 
 " searchhi
 nmap n <Plug>(searchhi-n)
@@ -276,7 +283,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> gr <Plug>(coc-references)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 let g:coc_disable_transparent_cursor = 1
@@ -331,7 +338,10 @@ colorscheme dracula_pro_morbius
 lua << EOF
 require("bufferline").setup{
   options = {
-    mode = "tabs"
+    mode = "tabs",
+    show_close_icons = false,
+    show_buffer_close_icons = false,
+    offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
   },
 
   highlights = {
@@ -346,3 +356,11 @@ require("bufferline").setup{
   },
 }
 EOF
+
+"=== telescope
+nnoremap <leader>F <cmd>Telescope live_grep<cr><esc>
+nnoremap <leader>f <cmd>lua require('telescope.builtin').grep_string()<cr>
+lua <<EOF
+require('telescope').load_extension('coc')
+EOF
+nmap <silent> gr <cmd>Telescope coc references<cr>
