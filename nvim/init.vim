@@ -19,13 +19,7 @@ Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 Plug 'vim-scripts/surround.vim'
 Plug 'phaazon/hop.nvim'
 Plug 'tpope/vim-commentary'
-
-" ===== snipmate and its friends ======
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
 Plug 'mz026/vim-snippets'
-" =================================
 Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-rails'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -81,6 +75,11 @@ EOF
 nmap <silent> <leader>x :TestNearest<CR>
 nmap <silent> <leader>r :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
+
+" for neovim, map ctrl-o to switching to normal mode from terminal mode
+if has('nvim')
+  tmap <C-o> <C-\><C-n>
+endif
 
 " ===== FZF =================
 nmap <leader>t :FZF<cr>
@@ -151,6 +150,13 @@ nmap <leader>/ <Plug>(searchhi-clear-all)
 nnoremap <silent><leader>1 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
 
 "================= coc ===================
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-pyright',
+  \ 'coc-snippets',
+  \ 'coc-go'
+\]
+
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
@@ -158,27 +164,23 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 let g:coc_disable_transparent_cursor = 1
 
-" use <tab> for trigger completion and navigate to the next complete item
-" https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
+      \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-inoremap <silent><expr> <S-Tab>
-      \ pumvisible() ? "\<C-p>" :
-      \ <SID>check_back_space() ? "\<S-Tab>" :
-      \ coc#refresh()
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+imap <leader><leader> <Plug>(coc-snippets-expand-jump)
 
 " Use ,2 to show documentation in preview window.
 nnoremap <silent> <leader>2 :call <SID>show_documentation()<CR>
@@ -193,14 +195,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" ========== vim-snipMate =======
-let g:snipMate = { 'snippet_version' : 1 }
-imap <leader><leader> <Plug>snipMateNextOrTrigger
-let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['javascript'] = 'javascript-jasmine'
-let g:snipMate.scope_aliases['typescript'] = 'javascript-jasmine'
-
 " ======= colorscheme ===========
 syntax enable
 set background=dark
@@ -209,7 +203,7 @@ set t_Co=256
 let g:dracula_colorterm = 0
 colorscheme dracula_pro_morbius
 
-"=== telescope
+"=== telescope =================
 nnoremap <leader>F <cmd>Telescope live_grep<cr><esc>
 nnoremap <leader>f <cmd>lua require('telescope.builtin').grep_string()<cr>
 lua <<EOF
