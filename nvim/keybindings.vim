@@ -1,7 +1,3 @@
-" map H, L to switch tab
-nnoremap H <c-PageUp>
-nnoremap L <c-PageDown>
-
 " J and K to multiple navigate
 nmap J 5j
 vmap J 5j

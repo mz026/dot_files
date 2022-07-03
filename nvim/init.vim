@@ -7,6 +7,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -54,13 +55,9 @@ source ~/.dot_files/nvim/options.vim
 source ~/.dot_files/nvim/keybindings.vim
 source ~/.dot_files/nvim/plugin_settings/hop.vim
 
-
 "commentary alias, map ,c to ctrl_ctrl_
 nmap <leader>c gcc
 vmap <leader>c gc
-
-" ========== Tabline settings ==============
-set showtabline=2
 
 " " ======= indent guide settings ==========
 lua <<EOF
@@ -82,9 +79,9 @@ if has('nvim')
 endif
 
 " ===== FZF =================
-nmap <leader>t :FZF<cr>
+nmap <leader>t :Files<cr>
 
-nmap <leader>f :Find <C-R><C-W>
+nmap <leader>f :Rg <C-R><C-W><cr>
 let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 let g:fzf_layout = { 'down': '40%' }
@@ -204,9 +201,27 @@ let g:dracula_colorterm = 0
 colorscheme dracula_pro_morbius
 
 "=== telescope =================
-nnoremap <leader>F <cmd>Telescope live_grep<cr><esc>
-nnoremap <leader>f <cmd>lua require('telescope.builtin').grep_string()<cr>
 lua <<EOF
 require('telescope').load_extension('coc')
 EOF
 nmap <silent> gr <cmd>Telescope coc references<cr>
+
+" ====== barbar =============
+nnoremap H <cmd>BufferPrevious<cr>
+nnoremap L <cmd>BufferNext<cr>
+nnoremap <leader>H <cmd>BufferMovePrevious<cr>
+nnoremap <leader>L <cmd>BufferMoveNext<cr>
+hi BufferCurrentMod guifg=#abb2bf ctermfg=249 guibg=#1e1e1e ctermbg=234 gui=NONE cterm=NONE
+lua <<EOF
+require'bufferline'.setup {}
+local nvim_tree_events = require('nvim-tree.events')
+local bufferline_state = require('bufferline.state')
+
+nvim_tree_events.on_tree_open(function ()
+  bufferline_state.set_offset(31, "File Tree")
+end)
+
+nvim_tree_events.on_tree_close(function ()
+  bufferline_state.set_offset(0)
+end)
+EOF
