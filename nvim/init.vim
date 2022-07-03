@@ -18,7 +18,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 Plug 'vim-scripts/surround.vim'
-Plug 'phaazon/hop.nvim'
+Plug 'phaazon/hop.nvim', { 'tag': 'v1.3.0' }
 Plug 'tpope/vim-commentary'
 Plug 'mz026/vim-snippets'
 Plug 'vim-scripts/matchit.zip'
