@@ -34,7 +34,7 @@ alias l='ls -CF'
 alias ls='ls -G'
 alias cl='clear'
 alias ll='ls -lh'
-alias vi='vim -X'
+alias vi='nvim'
 
 # rails aliases
 alias be='bundle exec'
