@@ -27,12 +27,11 @@ set diffopt+=vertical
 " ========== 80 columns =====================
 " 80 column highlight
 if v:version >= 703
-  set colorcolumn=85
+  set colorcolumn=80
   hi ColorColumn ctermfg=grey ctermbg=235
 endif
 
 " "for vsp 80 column width
-" set winwidth=100
 set previewheight=30
 
 " =========== folding methods ==============
