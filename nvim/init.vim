@@ -11,8 +11,8 @@ Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'fannheyward/telescope-coc.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+" Plug 'fannheyward/telescope-coc.nvim'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
@@ -45,6 +45,7 @@ Plug 'tpope/vim-abolish'
 Plug 'qxxxb/vim-searchhi'
 Plug 'aliou/sql-heredoc.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'antoinemadec/coc-fzf'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sensible'
 Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
@@ -78,20 +79,19 @@ if has('nvim')
 endif
 
 " ===== FZF =================
-let g:fzf_layout = { 'down': '40%' }
+let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.85 }}
 let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 let rg_command = 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" --glob "!.git/*" '
 
 command! -bang -nargs=* Find
   \ call fzf#vim#grep(
   \   rg_command.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+  \   fzf#vim#with_preview('up:50%'), <bang>0)
 
-" Find excluding testing folders
 command! -bang -nargs=* Findnt
   \ call fzf#vim#grep(
   \   rg_command.'--glob "!test[s]/" --glob "!spec[s]/" '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+  \   fzf#vim#with_preview('up:50%'), <bang>0)
 
 nmap <leader>f :Find <C-R><C-W><cr>
 nmap <leader>F :Findnt <C-R><C-W><cr>
@@ -167,6 +167,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Apply AutoFix to problem on the current line.
 nmap <leader>u  <Plug>(coc-fix-current)
@@ -206,11 +207,11 @@ set t_Co=256
 let g:dracula_colorterm = 0
 colorscheme dracula_pro_morbius
 
-"=== telescope =================
-lua <<EOF
-require('telescope').load_extension('coc')
-EOF
-nmap <silent> gr <cmd>Telescope coc references<cr>
+""=== telescope =================
+"lua <<EOF
+"require('telescope').load_extension('coc')
+"EOF
+"nmap <silent> gr <cmd>Telescope coc references<cr>
 
 " ====== barbar =============
 nnoremap H <cmd>BufferPrevious<cr>
