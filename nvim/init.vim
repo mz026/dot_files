@@ -78,14 +78,24 @@ if has('nvim')
 endif
 
 " ===== FZF =================
-nmap <leader>t :Files<cr>
-
-nmap <leader>f :Rg <C-R><C-W><cr>
-nmap <leader>F :Rg<cr>
-let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 let g:fzf_layout = { 'down': '40%' }
+let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+let rg_command = 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" --glob "!.git/*" '
 
+command! -bang -nargs=* Find
+  \ call fzf#vim#grep(
+  \   rg_command.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+" Find excluding testing folders
+command! -bang -nargs=* Findnt
+  \ call fzf#vim#grep(
+  \   rg_command.'--glob "!test[s]/" --glob "!spec[s]/" '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+nmap <leader>f :Find <C-R><C-W><cr>
+nmap <leader>F :Findnt <C-R><C-W><cr>
+nmap <leader>t :Files<cr>
 
 " ====== airline ================
 let g:airline#extensions#whitespace#checks = []
