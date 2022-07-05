@@ -109,7 +109,7 @@ setopt HIST_IGNORE_ALL_DUPS
 bindkey -s ,d '\e'
 
 # set default editor
-export EDITOR=vim
+export EDITOR=nvim
 
 # bindkey fix for vim mode: https://superuser.com/questions/476532/how-can-i-make-zshs-vi-mode-behave-more-like-bashs-vi-mode
 vi-search-fix() {

@@ -15,7 +15,7 @@
   ft = fetch
   mod = merge origin/development
 [core]
-  editor = vim
+  editor = nvim
 	excludesfile = ~/.gitignore_global
   # pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
 
