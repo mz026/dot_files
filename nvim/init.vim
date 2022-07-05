@@ -83,6 +83,11 @@ let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.85 }}
 let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 let rg_command = 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" --glob "!.git/*" '
 
+command! -bang -nargs=? FF
+  \ call fzf#vim#files(
+  \ <q-args>,
+  \ fzf#vim#with_preview({'down': '40%'}), <bang>0)
+
 command! -bang -nargs=* Find
   \ call fzf#vim#grep(
   \   rg_command.shellescape(<q-args>), 1,
@@ -95,7 +100,7 @@ command! -bang -nargs=* Findnt
 
 nmap <leader>f :Find <C-R><C-W><cr>
 nmap <leader>F :Findnt <C-R><C-W><cr>
-nmap <leader>t :Files<cr>
+nmap <leader>t :FF<cr>
 
 " ====== airline ================
 let g:airline#extensions#whitespace#checks = []
