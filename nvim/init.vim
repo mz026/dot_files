@@ -36,7 +36,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'godlygeek/tabular'
 Plug 'elixir-lang/vim-elixir'
@@ -117,6 +117,7 @@ let g:ale_linters = {
 \   'typescript': ['eslint'],
 \   'sh': ['shellcheck']
 \}
+let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
 highlight ALEError ctermbg=none cterm=underline
 cmap AF ALEFix
 
@@ -223,9 +224,15 @@ nnoremap H <cmd>BufferPrevious<cr>
 nnoremap L <cmd>BufferNext<cr>
 nnoremap <leader>H <cmd>BufferMovePrevious<cr>
 nnoremap <leader>L <cmd>BufferMoveNext<cr>
+
+" so that modified file's color won't get burried by the background
 hi BufferCurrentMod guifg=#abb2bf ctermfg=249 guibg=#1e1e1e ctermbg=234 gui=NONE cterm=NONE
+
 lua <<EOF
-require'bufferline'.setup {}
+require'bufferline'.setup {
+  tabpages = false,
+  closable = false,
+}
 local nvim_tree_events = require('nvim-tree.events')
 local bufferline_state = require('bufferline.state')
 
@@ -250,3 +257,5 @@ nnoremap <leader>w <cmd>:HopWordAC<cr>
 nnoremap <leader>b <cmd>:HopWordBC<cr>
 nnoremap <leader>j <cmd>:HopLineAC<cr>
 nnoremap <leader>k <cmd>:HopLineBC<cr>
+
+

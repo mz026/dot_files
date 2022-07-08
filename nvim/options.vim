@@ -10,6 +10,7 @@ set termguicolors
 
 " set indent to 4 for python files
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4
+autocmd FileType proto setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 " enable project level vimrc
 set exrc            " enable per-directory .vimrc files
