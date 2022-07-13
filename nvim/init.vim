@@ -1,4 +1,5 @@
 set nocompatible               " be iMproved
+
 set nomodeline
 filetype off                   " required!
 
@@ -11,8 +12,6 @@ Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
-" Plug 'nvim-telescope/telescope.nvim'
-" Plug 'fannheyward/telescope-coc.nvim'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
@@ -129,7 +128,18 @@ nnoremap <silent> <leader>z :ArgWrap<CR>
 
 " ======== nvim-tree ====================
 lua <<EOF
-require("nvim-tree").setup()
+require("nvim-tree").setup{
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
+  },
+}
 EOF
 nnoremap <leader>e <cmd>NvimTreeToggle<cr>
 
@@ -226,12 +236,12 @@ nnoremap <leader>H <cmd>BufferMovePrevious<cr>
 nnoremap <leader>L <cmd>BufferMoveNext<cr>
 
 " so that modified file's color won't get burried by the background
-hi BufferCurrentMod guifg=#abb2bf ctermfg=249 guibg=#1e1e1e ctermbg=234 gui=NONE cterm=NONE
+hi BufferCurrentMod guifg=#abb2bf ctermfg=249 gui=NONE cterm=NONE
+hi BufferInactiveMod ctermfg=249 ctermbg=0 guifg=#abb2bf guibg=#0f0b0b
 
 lua <<EOF
 require'bufferline'.setup {
   tabpages = false,
-  closable = false,
 }
 local nvim_tree_events = require('nvim-tree.events')
 local bufferline_state = require('bufferline.state')
