@@ -9,7 +9,7 @@ set tabstop=2
 set termguicolors
 
 " set indent to 4 for python files
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4 tabstop=4 foldmethod=indent
 autocmd FileType proto setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 " enable project level vimrc
@@ -36,12 +36,10 @@ endif
 set previewheight=30
 
 " =========== folding methods ==============
-" fold highlight
-hi Folded ctermfg=gray
-hi Folded ctermbg=0
-
 " space in normal mode to alternate folding.
 nnoremap <space> za
+" open all folds when opening a file
+autocmd BufWinEnter * silent! :%foldopen!
 
 " highlight def link, to solve js object key highlighting
 " form https://github.com/pangloss/vim-javascript/issues/138

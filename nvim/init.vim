@@ -28,11 +28,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'janko-m/vim-test'
 
 " rubyblock depends on textobj-user
-Plug 'kana/vim-textobj-user'
-Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'kana/vim-textobj-user', { 'for': 'ruby' }
+Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'dyng/ctrlsf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'dense-analysis/ale'
@@ -46,7 +45,9 @@ Plug 'aliou/sql-heredoc.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'antoinemadec/coc-fzf'
 Plug 'tpope/vim-projectionist'
+Plug 'pedrohdz/vim-yaml-folds'
 Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -263,3 +264,14 @@ nnoremap <leader>w <cmd>:HopWordAC<cr>
 nnoremap <leader>b <cmd>:HopWordBC<cr>
 nnoremap <leader>j <cmd>:HopLineAC<cr>
 nnoremap <leader>k <cmd>:HopLineBC<cr>
+
+"===== treesitter ======
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "python", "go" },
+
+  highlight = {
+    enable = true,
+  },
+}
+EOF
