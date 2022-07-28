@@ -46,7 +46,6 @@ Plug 'aliou/sql-heredoc.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'antoinemadec/coc-fzf'
 Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-sensible'
 Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
 
 call plug#end()
@@ -100,7 +99,7 @@ command! -bang -nargs=* Findnt
 nmap <leader>f :Find <C-R><C-W><cr>
 nmap <leader>F :Findnt <C-R><C-W><cr>
 nmap <leader>t :FF<cr>
-
+nmap <leader>B :Buffers<cr>
 " ====== airline ================
 let g:airline#extensions#whitespace#checks = []
 
@@ -138,6 +137,9 @@ require("nvim-tree").setup{
       warning = "",
       error = "",
     },
+  },
+  view = {
+    adaptive_size = true,
   },
 }
 EOF
@@ -223,12 +225,6 @@ set t_Co=256
 let g:dracula_colorterm = 0
 colorscheme dracula_pro_morbius
 
-""=== telescope =================
-"lua <<EOF
-"require('telescope').load_extension('coc')
-"EOF
-"nmap <silent> gr <cmd>Telescope coc references<cr>
-
 " ====== barbar =============
 nnoremap H <cmd>BufferPrevious<cr>
 nnoremap L <cmd>BufferNext<cr>
@@ -267,5 +263,3 @@ nnoremap <leader>w <cmd>:HopWordAC<cr>
 nnoremap <leader>b <cmd>:HopWordBC<cr>
 nnoremap <leader>j <cmd>:HopLineAC<cr>
 nnoremap <leader>k <cmd>:HopLineBC<cr>
-
-

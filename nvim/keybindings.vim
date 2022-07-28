@@ -11,9 +11,6 @@ vmap K 5k
 nmap <C-p> "+p
 vmap <C-y> "+y
 
-"move tab to left/right by shift-<left>/<right>
-nnoremap <silent> <leader>H :-tabmove<CR>
-nnoremap <silent> <leader>L :+tabmove<CR>
 
 " T to zt, put current line to the top of screen.
 nmap T zt
