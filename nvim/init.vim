@@ -226,6 +226,8 @@ set t_Co=256
 let g:dracula_colorterm = 0
 colorscheme dracula_pro_morbius
 
+hi! link Folded DraculaOrangeItalic
+
 " ====== barbar =============
 nnoremap H <cmd>BufferPrevious<cr>
 nnoremap L <cmd>BufferNext<cr>
