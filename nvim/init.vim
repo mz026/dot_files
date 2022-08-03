@@ -48,6 +48,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'Vimjas/vim-python-pep8-indent'
 
 call plug#end()
 
