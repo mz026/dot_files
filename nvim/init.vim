@@ -49,6 +49,7 @@ Plug 'pedrohdz/vim-yaml-folds'
 Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'ruanyl/vim-gh-line'
 
 call plug#end()
 
@@ -278,3 +279,8 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+" ===== coc-go ==========
+" automatically handle imports before saving
+" use silent because gopls' issue when there's nothing new to import
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
