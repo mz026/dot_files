@@ -30,7 +30,10 @@ class Installer
 
   def vim
     vimplug
+    system "mkdir -p #{HOME}/.config"
+    link_file('nvim', '.config/nvim')
     brew_install('rg')
+    brew_install('neovim')
   end
 
   def brew_install pkg
@@ -39,8 +42,6 @@ class Installer
 
   def vimplug
     system 'curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    link_file('vimrc', '.vimrc')
-    system "vim -S #{DOT_FOLDER}/vim.lock"
   end
 
   def tmux
@@ -57,10 +58,6 @@ class Installer
     system "curl https://raw.githubusercontent.com/rupa/z/master/z.sh --output #{HOME}/codes/lib/z/z.sh"
   end
 
-  def base16_shell
-    system "git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell"
-  end
-
   def git
     link_file('gitconfig', '.gitconfig')
     link_file('gitconfig_global', '.gitconfig_global')
@@ -74,7 +71,6 @@ class Installer
     homebrew
     inputrc
     zsh_syntax_highlight
-    base16_shell
     zsh
     git
     z
