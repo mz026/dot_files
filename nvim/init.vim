@@ -50,6 +50,9 @@ Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ruanyl/vim-gh-line'
+" for diffview
+Plug 'nvim-lua/plenary.nvim'
+Plug 'sindrets/diffview.nvim'
 
 call plug#end()
 
@@ -185,10 +188,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> <leader>gd :call CocAction('jumpDefinition', 'tab drop')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gm <Plug>(coc-rename)
 
 " Apply AutoFix to problem on the current line.
 nmap <leader>u  <Plug>(coc-fix-current)
