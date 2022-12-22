@@ -17,7 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 Plug 'vim-scripts/surround.vim'
-Plug 'phaazon/hop.nvim', { 'tag': 'v1.3.0' }
+Plug 'phaazon/hop.nvim', { 'tag': 'v2.0.3' }
 Plug 'tpope/vim-commentary'
 Plug 'mz026/vim-snippets'
 Plug 'vim-scripts/matchit.zip'
@@ -149,7 +149,7 @@ require("nvim-tree").setup{
   },
 }
 EOF
-nnoremap <leader>e <cmd>NvimTreeToggle<cr>
+nnoremap <leader>E <cmd>NvimTreeToggle<cr>
 
 " searchhi
 nmap n <Plug>(searchhi-n)
@@ -266,11 +266,32 @@ EOF
 " ==== hop ============
 lua <<EOF
 require'hop'.setup()
+
+-- place this in one of your configuration file(s)
+local hop = require('hop')
+local directions = require('hop.hint').HintDirection
+local hintPosition = require('hop.hint').HintPosition
+vim.keymap.set('', '<leader>w', function()
+  hop.hint_words({ direction = directions.AFTER_CURSOR, current_line_only = false })
+end, {remap=true})
+
+vim.keymap.set('', '<leader>b', function()
+  hop.hint_words({ direction = directions.BEFORE_CURSOR, current_line_only = false })
+end, {remap=true})
+
+vim.keymap.set('', '<leader>e', function()
+  hop.hint_words({ direction = directions.AFTER_CURSOR, hint_position = hintPosition.END })
+end, {remap=true})
+
+vim.keymap.set('', '<leader>k', function()
+  hop.hint_lines({ direction = directions.BEFORE_CURSOR })
+end, {remap=true})
+
+vim.keymap.set('', '<leader>j', function()
+  hop.hint_lines({ direction = directions.AFTER_CURSOR })
+end, {remap=true})
 EOF
-nnoremap <leader>w <cmd>:HopWordAC<cr>
-nnoremap <leader>b <cmd>:HopWordBC<cr>
-nnoremap <leader>j <cmd>:HopLineAC<cr>
-nnoremap <leader>k <cmd>:HopLineBC<cr>
+
 
 "===== treesitter ======
 lua <<EOF
