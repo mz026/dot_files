@@ -271,26 +271,17 @@ require'hop'.setup()
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
 local hintPosition = require('hop.hint').HintPosition
-vim.keymap.set('', '<leader>w', function()
-  hop.hint_words({ direction = directions.AFTER_CURSOR, current_line_only = false })
-end, {remap=true})
 
-vim.keymap.set('', '<leader>b', function()
-  hop.hint_words({ direction = directions.BEFORE_CURSOR, current_line_only = false })
-end, {remap=true})
-
+-- map <leader>e to "jump the the end of words"
 vim.keymap.set('', '<leader>e', function()
   hop.hint_words({ direction = directions.AFTER_CURSOR, hint_position = hintPosition.END })
 end, {remap=true})
-
-vim.keymap.set('', '<leader>k', function()
-  hop.hint_lines({ direction = directions.BEFORE_CURSOR })
-end, {remap=true})
-
-vim.keymap.set('', '<leader>j', function()
-  hop.hint_lines({ direction = directions.AFTER_CURSOR })
-end, {remap=true})
 EOF
+
+nnoremap <leader>w <cmd>:HopWordAC<cr>
+nnoremap <leader>b <cmd>:HopWordBC<cr>
+nnoremap <leader>j <cmd>:HopLineAC<cr>
+nnoremap <leader>k <cmd>:HopLineBC<cr>
 
 
 "===== treesitter ======
