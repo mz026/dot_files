@@ -149,9 +149,10 @@ require("nvim-tree").setup{
   },
 }
 EOF
+nnoremap <leader>3 <cmd>NvimTreeFindFile<cr>
 nnoremap <leader>E <cmd>NvimTreeToggle<cr>
 
-" searchhi
+" ======== searchhi ==============
 nmap n <Plug>(searchhi-n)
 nmap N <Plug>(searchhi-N)
 nmap * <Plug>(searchhi-*)
@@ -173,8 +174,8 @@ vmap gD <Plug>(searchhi-v-gD)
 " ,/ to close search hilight
 nmap <leader>/ <Plug>(searchhi-clear-all)
 
-" <leader>1 to refresh vimrc
-nnoremap <silent><leader>1 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
+" <leader>0 to refresh vimrc
+nnoremap <silent><leader>0 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
 
 "================= coc ===================
 let g:coc_global_extensions = [
@@ -299,3 +300,41 @@ EOF
 " automatically handle imports before saving
 " use silent because gopls' issue when there's nothing new to import
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
+"==== diffview ===============
+lua <<EOF
+local actions = require("diffview.actions")
+require'diffview'.setup {
+  -- set the file panel as a floating window
+  file_panel = {
+    win_config = function()
+      local c = { type = "float" }
+      local editor_width = vim.o.columns
+      local editor_height = vim.o.lines
+      c.width = math.min(100, editor_width)
+      c.height = math.min(24, editor_height)
+      c.col = math.floor(editor_width * 0.5 - c.width * 0.5)
+      c.row = math.floor(editor_height * 0.5 - c.height * 0.5)
+      return c
+    end,
+  },
+  keymaps = {
+    -- set <leader>4 as the toggle of file panel and reserve <leader>b and <leader>e for hop
+    view = {
+      disable_defaults = false,
+      ["<leader>b"] = false,
+      ["<leader>e"] = false,
+      { "n", "<leader>4", actions.toggle_files, { desc = "Toggle the file panel." } },
+    },
+    file_panel = {
+      disable_defaults = false,
+      ["<leader>b"] = false,
+      ["<leader>e"] = false,
+      { "n", "<leader>4", actions.toggle_files, { desc = "Toggle the file panel." } },
+    },
+  },
+}
+EOF
+cmap DO DiffviewOpen
+cmap DC DiffviewClose
+cmap DF DiffviewFileHistory
