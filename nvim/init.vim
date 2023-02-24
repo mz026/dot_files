@@ -189,7 +189,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gm <Plug>(coc-rename)
@@ -335,6 +335,10 @@ require'diffview'.setup {
   },
 }
 EOF
-cmap DO DiffviewOpen
-cmap DC DiffviewClose
-cmap DF DiffviewFileHistory
+cmap GD DiffviewOpen
+cmap GC DiffviewClose
+cmap GF DiffviewFileHistory
+
+
+" ======= vim-gh-line =============
+let g:gh_open_command = 'fn() { echo "$@" | pbcopy; }; fn '
