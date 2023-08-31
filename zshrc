@@ -19,12 +19,12 @@ function git_prompt() {
   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-    echo "[%{$fg_bold[blue]%}${ref#refs/heads/}%{$reset_color%}-%{$fg_bold[yellow]%}$(git_prompt_short_sha)%{$reset_color%}]$(parse_git_dirty)"
+    echo "%{$fg_bold[yellow]%}$(git_prompt_short_sha).%{$fg_bold[blue]%}${ref#refs/heads/}%{$reset_color%} $(parse_git_dirty)"
   fi
 }
 
-PROMPT='%{$fg_bold[cyan]%}%~%{$reset_color%}
-$(git_prompt)%% '
+PROMPT='%{$fg_bold[cyan]%}%~ $fg_bold[grey]$(date +"%H:%M:%S %m/%d")%{$reset_color%}
+$(git_prompt)❯ '
 
 # use vi to control command line
 set -o vi

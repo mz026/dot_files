@@ -53,6 +53,7 @@ Plug 'ruanyl/vim-gh-line'
 " for diffview
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 

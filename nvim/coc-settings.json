@@ -32,6 +32,8 @@
     "default": "\uf29c" //  question mark in circle
   },
   "snippets.ultisnips.enable": false,
+  "inlayHint.enable": false,
+  "suggest.noselect": true,
 
   "coc.preferences.formatOnSaveFiletypes": [
     "go"
