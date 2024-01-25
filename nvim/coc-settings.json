@@ -37,5 +37,8 @@
 
   "coc.preferences.formatOnSaveFiletypes": [
     "go"
-  ]
+  ],
+  "go.goplsOptions": {
+    "buildFlags": ["-tags=mage"]
+  }
 }
