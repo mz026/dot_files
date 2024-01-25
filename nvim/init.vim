@@ -11,13 +11,12 @@ Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 Plug 'vim-scripts/surround.vim'
-Plug 'phaazon/hop.nvim', { 'tag': 'v2.0.3' }
+Plug 'smoka7/hop.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'mz026/vim-snippets'
 Plug 'vim-scripts/matchit.zip'
@@ -54,6 +53,7 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'hashivim/vim-terraform'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 call plug#end()
 
@@ -150,8 +150,8 @@ require("nvim-tree").setup{
   },
 }
 EOF
-nnoremap <leader>3 <cmd>NvimTreeFindFile<cr>
-nnoremap <leader>E <cmd>NvimTreeToggle<cr>
+nnoremap <leader>E <cmd>NvimTreeFindFile<cr>
+nnoremap <leader>3 <cmd>NvimTreeToggle<cr>
 
 " ======== searchhi ==============
 nmap n <Plug>(searchhi-n)
@@ -182,8 +182,7 @@ nnoremap <silent><leader>0 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-pyright',
-  \ 'coc-snippets',
-  \ 'coc-go'
+  \ 'coc-snippets'
 \]
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -236,6 +235,10 @@ colorscheme dracula_pro_morbius
 hi! link Folded DraculaOrangeItalic
 
 " ====== barbar =============
+let g:barbar_auto_setup = v:false " disable auto-setup
+lua << EOF
+  require'barbar'.setup {}
+EOF
 nnoremap H <cmd>BufferPrevious<cr>
 nnoremap L <cmd>BufferNext<cr>
 nnoremap <leader>H <cmd>BufferMovePrevious<cr>
@@ -251,14 +254,6 @@ require'bufferline'.setup {
 }
 local nvim_tree_events = require('nvim-tree.events')
 local bufferline_state = require('bufferline.state')
-
-nvim_tree_events.on_tree_open(function ()
-  bufferline_state.set_offset(31, "File Tree")
-end)
-
-nvim_tree_events.on_tree_close(function ()
-  bufferline_state.set_offset(0)
-end)
 EOF
 
 "===== bbye ============
@@ -289,7 +284,7 @@ nnoremap <leader>k <cmd>:HopLineBC<cr>
 "===== treesitter ======
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "python", "go" },
+  ensure_installed = { "python", "go", "javascript", "bash", "sql", "typescript"},
 
   highlight = {
     enable = true,
@@ -342,4 +337,12 @@ cmap GF DiffviewFileHistory
 
 
 " ======= vim-gh-line =============
-let g:gh_open_command = 'fn() { echo "$@" | pbcopy; }; fn '
+" to copy the URL to clipboard instead of opening it in browser
+let g:gh_open_command = 'fn() { echo -n "$@" | pbcopy; }; fn '
+
+
+" vim-go, unmap K. The original mapping is to open godoc.
+let g:go_doc_keywordprg_enabled = 0
+
+" Disable copilot by default
+let g:copilot_enabled = v:false
