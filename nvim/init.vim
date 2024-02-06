@@ -55,6 +55,10 @@ Plug 'sindrets/diffview.nvim'
 Plug 'hashivim/vim-terraform'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
+" required for vim-markdown
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+
 call plug#end()
 
 source ~/.dot_files/nvim/options.vim
@@ -64,7 +68,7 @@ source ~/.dot_files/nvim/keybindings.vim
 nmap <leader>c gcc
 vmap <leader>c gc
 
-" " ======= indent guide settings ==========
+" ======= indent guide settings ==========
 lua <<EOF
 vim.opt.list = true
 
@@ -132,7 +136,30 @@ let g:jsx_ext_required = 0
 " ======== Argwrap ====================
 nnoremap <silent> <leader>z :ArgWrap<CR>
 
-" ======== nvim-tree ====================
+" ======== nvim-treesitter ====================
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    "python",
+    "go",
+    "javascript",
+    "bash",
+    "sql",
+    "typescript"
+  },
+
+  highlight = {
+    enable = true,
+    disable = { "markdown", "md" },
+  },
+  indent = {
+    enable = true
+  },
+}
+EOF
+
+
+" ========= nvim-tree
 lua <<EOF
 require("nvim-tree").setup{
   diagnostics = {
@@ -182,6 +209,7 @@ nnoremap <silent><leader>0 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-pyright',
+  \ 'coc-sumneko-lua',
   \ 'coc-snippets'
 \]
 
@@ -281,17 +309,6 @@ nnoremap <leader>j <cmd>:HopLineAC<cr>
 nnoremap <leader>k <cmd>:HopLineBC<cr>
 
 
-"===== treesitter ======
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "python", "go", "javascript", "bash", "sql", "typescript"},
-
-  highlight = {
-    enable = true,
-  },
-}
-EOF
-
 " ===== coc-go ==========
 " automatically handle imports before saving
 " use silent because gopls' issue when there's nothing new to import
@@ -346,3 +363,8 @@ let g:go_doc_keywordprg_enabled = 0
 
 " Disable copilot by default
 let g:copilot_enabled = v:false
+
+" ======== markdown
+set conceallevel=2
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_toc_autofit = 1
