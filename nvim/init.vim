@@ -16,7 +16,7 @@ Plug 'nvim-lua/plenary.nvim'
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
-Plug 'vim-scripts/surround.vim'
+" Plug 'vim-scripts/surround.vim'
 Plug 'smoka7/hop.nvim'
 " Plug 'tpope/vim-commentary'
 Plug 'mz026/vim-snippets'
@@ -46,7 +46,7 @@ Plug 'aliou/sql-heredoc.vim'
 " Plug 'antoinemadec/coc-fzf'
 Plug 'tpope/vim-projectionist'
 Plug 'pedrohdz/vim-yaml-folds'
-Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
+" Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ruanyl/vim-gh-line'
@@ -256,15 +256,15 @@ nnoremap <silent><leader>0 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
 "  endif
 "endfunction
 
-" ======= colorscheme ===========
-syntax enable
-set background=dark
+" " ======= colorscheme ===========
+" syntax enable
+" set background=dark
 
-set t_Co=256
-let g:dracula_colorterm = 0
-colorscheme dracula_pro_morbius
+" set t_Co=256
+" let g:dracula_colorterm = 0
+" colorscheme dracula_pro_morbius
 
-hi! link Folded DraculaOrangeItalic
+" hi! link Folded DraculaOrangeItalic
 
 " ====== barbar =============
 " let g:barbar_auto_setup = v:false " disable auto-setup

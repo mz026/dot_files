@@ -20,6 +20,7 @@ require('lazy').setup({
   require('plugins.commentary'),
   require('plugins.coc'),
   require('plugins.markdown'),
+  require('plugins.colorscheme'),
   {
     'moll/vim-bbye',
     keys = {
@@ -30,4 +31,5 @@ require('lazy').setup({
   'tpope/vim-endwise',
   'bronson/vim-trailing-whitespace',
   'godlygeek/tabular',
+  'vim-scripts/surround.vim'
 })
