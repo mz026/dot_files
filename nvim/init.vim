@@ -25,7 +25,7 @@ Plug 'tpope/vim-rails'
 " Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'bling/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
-Plug 'janko-m/vim-test'
+" Plug 'janko-m/vim-test'
 
 " " rubyblock depends on textobj-user
 " Plug 'kana/vim-textobj-user', { 'for': 'ruby' }
@@ -49,7 +49,7 @@ Plug 'pedrohdz/vim-yaml-folds'
 " Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'ruanyl/vim-gh-line'
+" Plug 'ruanyl/vim-gh-line'
 " for diffview
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'sindrets/diffview.nvim'
@@ -81,15 +81,15 @@ EOF
 " }
 " EOF
 
-" ====== vim-test ==================
-nmap <silent> <leader>x :TestNearest<CR>
-nmap <silent> <leader>r :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
+" " ====== vim-test ==================
+" nmap <silent> <leader>x :TestNearest<CR>
+" nmap <silent> <leader>r :TestFile<CR>
+" nmap <silent> <leader>a :TestSuite<CR>
 
-" for neovim, map ctrl-o to switching to normal mode from terminal mode
-if has('nvim')
-  tmap <C-o> <C-\><C-n>
-endif
+" " for neovim, map ctrl-o to switching to normal mode from terminal mode
+" if has('nvim')
+"   tmap <C-o> <C-\><C-n>
+" endif
 
 " " ===== FZF =================
 " let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.85 }}
@@ -358,9 +358,9 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 "cmap GF DiffviewFileHistory
 
 
-" ======= vim-gh-line =============
-" to copy the URL to clipboard instead of opening it in browser
-let g:gh_open_command = 'fn() { echo -n "$@" | pbcopy; }; fn '
+" " ======= vim-gh-line =============
+" " to copy the URL to clipboard instead of opening it in browser
+" let g:gh_open_command = 'fn() { echo -n "$@" | pbcopy; }; fn '
 
 
 " vim-go, unmap K. The original mapping is to open godoc.

@@ -44,9 +44,25 @@ require('lazy').setup({
     }
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
+    'lukas-reineke/indent-blankline.nvim',
     main = "ibl",
     opts = {}
+  },
+  {
+    'ruanyl/vim-gh-line',
+    config = function ()
+      -- to copy the URL to clipboard instead of opening it in browser
+      vim.g.gh_open_command = 'fn() { echo -n "$@" | pbcopy; }; fn '
+    end
+  },
+  {
+    'janko-m/vim-test',
+    keys = {
+      {'<leader>x', ':TestNearest<CR>'},
+      {'<leader>r', ':TestFile<CR>'},
+      {'<leader>a', ':TestSuite<CR>'},
+      {'<C-o>', '<C-\\><C-n>', mode = 't'}
+    }
   },
   'tpope/vim-fugitive',
   'tpope/vim-endwise',
