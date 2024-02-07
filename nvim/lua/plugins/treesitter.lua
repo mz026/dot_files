@@ -9,7 +9,8 @@ return {
         "javascript",
         "bash",
         "sql",
-        "typescript"
+        "typescript",
+        "lua"
       },
 
       highlight = {

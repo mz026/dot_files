@@ -16,4 +16,8 @@ M.vmap = function (shortcut, command)
   map('v', shortcut, command)
 end
 
+M.cmap = function (shortcut, command)
+  map('c', shortcut, command)
+end
+
 return M

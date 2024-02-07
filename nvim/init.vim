@@ -51,8 +51,8 @@ Plug 'pedrohdz/vim-yaml-folds'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ruanyl/vim-gh-line'
 " for diffview
-Plug 'nvim-lua/plenary.nvim'
-Plug 'sindrets/diffview.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'sindrets/diffview.nvim'
 Plug 'hashivim/vim-terraform'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
@@ -319,43 +319,43 @@ nnoremap <silent><leader>0 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
 " use silent because gopls' issue when there's nothing new to import
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
-"==== diffview ===============
-lua <<EOF
-local actions = require("diffview.actions")
-require'diffview'.setup {
-  -- set the file panel as a floating window
-  file_panel = {
-    win_config = function()
-      local c = { type = "float" }
-      local editor_width = vim.o.columns
-      local editor_height = vim.o.lines
-      c.width = math.min(100, editor_width)
-      c.height = math.min(24, editor_height)
-      c.col = math.floor(editor_width * 0.5 - c.width * 0.5)
-      c.row = math.floor(editor_height * 0.5 - c.height * 0.5)
-      return c
-    end,
-  },
-  keymaps = {
-    -- set <leader>4 as the toggle of file panel and reserve <leader>b and <leader>e for hop
-    view = {
-      disable_defaults = false,
-      ["<leader>b"] = false,
-      ["<leader>e"] = false,
-      { "n", "<leader>4", actions.toggle_files, { desc = "Toggle the file panel." } },
-    },
-    file_panel = {
-      disable_defaults = false,
-      ["<leader>b"] = false,
-      ["<leader>e"] = false,
-      { "n", "<leader>4", actions.toggle_files, { desc = "Toggle the file panel." } },
-    },
-  },
-}
-EOF
-cmap GD DiffviewOpen
-cmap GC DiffviewClose
-cmap GF DiffviewFileHistory
+""==== diffview ===============
+"lua <<EOF
+"local actions = require("diffview.actions")
+"require'diffview'.setup {
+"  -- set the file panel as a floating window
+"  file_panel = {
+"    win_config = function()
+"      local c = { type = "float" }
+"      local editor_width = vim.o.columns
+"      local editor_height = vim.o.lines
+"      c.width = math.min(100, editor_width)
+"      c.height = math.min(24, editor_height)
+"      c.col = math.floor(editor_width * 0.5 - c.width * 0.5)
+"      c.row = math.floor(editor_height * 0.5 - c.height * 0.5)
+"      return c
+"    end,
+"  },
+"  keymaps = {
+"    -- set <leader>4 as the toggle of file panel and reserve <leader>b and <leader>e for hop
+"    view = {
+"      disable_defaults = false,
+"      ["<leader>b"] = false,
+"      ["<leader>e"] = false,
+"      { "n", "<leader>4", actions.toggle_files, { desc = "Toggle the file panel." } },
+"    },
+"    file_panel = {
+"      disable_defaults = false,
+"      ["<leader>b"] = false,
+"      ["<leader>e"] = false,
+"      { "n", "<leader>4", actions.toggle_files, { desc = "Toggle the file panel." } },
+"    },
+"  },
+"}
+"EOF
+"cmap GD DiffviewOpen
+"cmap GC DiffviewClose
+"cmap GF DiffviewFileHistory
 
 
 " ======= vim-gh-line =============
