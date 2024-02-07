@@ -10,7 +10,8 @@ return {
         "bash",
         "sql",
         "typescript",
-        "lua"
+        "lua",
+        "vimdoc"
       },
 
       highlight = {
