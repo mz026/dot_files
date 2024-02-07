@@ -7,8 +7,9 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 " Plug 'junegunn/fzf.vim'
-Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
-Plug 'romgrk/barbar.nvim'
+" Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+" Plug 'romgrk/barbar.nvim'
+
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'moll/vim-bbye'
@@ -266,26 +267,27 @@ colorscheme dracula_pro_morbius
 hi! link Folded DraculaOrangeItalic
 
 " ====== barbar =============
-let g:barbar_auto_setup = v:false " disable auto-setup
-lua << EOF
-  require'barbar'.setup {}
-EOF
-nnoremap H <cmd>BufferPrevious<cr>
-nnoremap L <cmd>BufferNext<cr>
-nnoremap <leader>H <cmd>BufferMovePrevious<cr>
-nnoremap <leader>L <cmd>BufferMoveNext<cr>
+" let g:barbar_auto_setup = v:false " disable auto-setup
+" lua << EOF
+"   require'barbar'.setup {}
+" EOF
+" nnoremap H <cmd>BufferPrevious<cr>
+" nnoremap L <cmd>BufferNext<cr>
+" nnoremap <leader>H <cmd>BufferMovePrevious<cr>
+" nnoremap <leader>L <cmd>BufferMoveNext<cr>
 
-" so that modified file's color won't get burried by the background
-hi BufferCurrentMod guifg=#abb2bf ctermfg=249 gui=NONE cterm=NONE
-hi BufferInactiveMod ctermfg=249 ctermbg=0 guifg=#abb2bf guibg=#0f0b0b
+" " so that modified file's color won't get burried by the background
+" hi BufferCurrentMod guifg=#abb2bf ctermfg=249 gui=NONE cterm=NONE
+" hi BufferInactiveMod ctermfg=249 ctermbg=0 guifg=#abb2bf guibg=#0f0b0b
 
-lua <<EOF
-require'bufferline'.setup {
-  tabpages = false,
-}
-local nvim_tree_events = require('nvim-tree.events')
-local bufferline_state = require('bufferline.state')
-EOF
+" ========= ???
+" lua <<EOF
+" require'bufferline'.setup {
+"   tabpages = false,
+" }
+" local nvim_tree_events = require('nvim-tree.events')
+" local bufferline_state = require('bufferline.state')
+" EOF
 
 "===== bbye ============
 " close buffer by ,q
