@@ -19,6 +19,7 @@ require('lazy').setup({
   require('plugins.nvim-tree'),
   require('plugins.commentary'),
   require('plugins.coc'),
+  require('plugins.markdown'),
   {
     'moll/vim-bbye',
     keys = {
@@ -27,4 +28,6 @@ require('lazy').setup({
   },
   'tpope/vim-fugitive',
   'tpope/vim-endwise',
+  'bronson/vim-trailing-whitespace',
+  'godlygeek/tabular',
 })

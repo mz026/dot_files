@@ -35,8 +35,8 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'dense-analysis/ale'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'godlygeek/tabular'
+" Plug 'bronson/vim-trailing-whitespace'
+" Plug 'godlygeek/tabular'
 Plug 'elixir-lang/vim-elixir'
 Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
@@ -57,8 +57,8 @@ Plug 'hashivim/vim-terraform'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " required for vim-markdown
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
+" Plug 'godlygeek/tabular'
+" Plug 'preservim/vim-markdown'
 
 call plug#end()
 
@@ -369,7 +369,7 @@ let g:go_doc_keywordprg_enabled = 0
 " Disable copilot by default
 let g:copilot_enabled = v:false
 
-" ======== markdown
-set conceallevel=2
-let g:vim_markdown_conceal_code_blocks = 0
-let g:vim_markdown_toc_autofit = 1
+" " ======== markdown
+" set conceallevel=2
+" let g:vim_markdown_conceal_code_blocks = 0
+" let g:vim_markdown_toc_autofit = 1
