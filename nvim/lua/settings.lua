@@ -27,9 +27,15 @@ require('lazy').setup({
       {'<Leader>q', ':Bdelete<CR>'}
     }
   },
+  {
+      'windwp/nvim-autopairs',
+      event = "InsertEnter",
+      opts = {} -- this is equalent to setup({}) function
+  },
   'tpope/vim-fugitive',
   'tpope/vim-endwise',
   'bronson/vim-trailing-whitespace',
   'godlygeek/tabular',
-  'vim-scripts/surround.vim'
+  'vim-scripts/surround.vim',
+  'mz026/vim-snippets'
 })

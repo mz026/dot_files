@@ -15,11 +15,11 @@ Plug 'nvim-lua/plenary.nvim'
 " Plug 'moll/vim-bbye'
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-endwise'
-Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
+" Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 " Plug 'vim-scripts/surround.vim'
 Plug 'smoka7/hop.nvim'
 " Plug 'tpope/vim-commentary'
-Plug 'mz026/vim-snippets'
+" Plug 'mz026/vim-snippets'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-rails'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -27,9 +27,9 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'janko-m/vim-test'
 
-" rubyblock depends on textobj-user
-Plug 'kana/vim-textobj-user', { 'for': 'ruby' }
-Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
+" " rubyblock depends on textobj-user
+" Plug 'kana/vim-textobj-user', { 'for': 'ruby' }
+" Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'pangloss/vim-javascript'
