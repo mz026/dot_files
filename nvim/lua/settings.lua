@@ -18,6 +18,7 @@ require('lazy').setup({
   require('plugins.barbar'),
   require('plugins.nvim-tree'),
   require('plugins.commentary'),
+  require('plugins.coc'),
   'tpope/vim-fugitive',
   'tpope/vim-endwise',
 })
