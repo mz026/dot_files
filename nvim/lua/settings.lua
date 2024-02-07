@@ -1,3 +1,5 @@
+local u = require('utils')
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -15,4 +17,7 @@ require('lazy').setup({
   require('plugins.fzf'),
   require('plugins.barbar'),
   require('plugins.nvim-tree'),
+  require('plugins.commentary'),
+  'tpope/vim-fugitive',
+  'tpope/vim-endwise',
 })

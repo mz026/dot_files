@@ -13,12 +13,12 @@ call plug#begin('~/.vim/plugged')
 " Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'moll/vim-bbye'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 Plug 'vim-scripts/surround.vim'
 Plug 'smoka7/hop.nvim'
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 Plug 'mz026/vim-snippets'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-rails'
@@ -68,9 +68,9 @@ require('keybindings')
 require('settings')
 EOF
 
-"commentary alias, map ,c to ctrl_ctrl_
-nmap <leader>c gcc
-vmap <leader>c gc
+""commentary alias, map ,c to ctrl_ctrl_
+"nmap <leader>c gcc
+"vmap <leader>c gc
 
 " ======= indent guide settings ==========
 lua <<EOF
