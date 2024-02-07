@@ -61,9 +61,8 @@ Plug 'preservim/vim-markdown'
 
 call plug#end()
 
-source ~/.dot_files/nvim/options.vim
-
 lua <<EOF
+require('options')
 require('keybindings')
 EOF
 

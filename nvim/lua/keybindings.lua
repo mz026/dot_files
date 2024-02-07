@@ -1,18 +1,7 @@
-local function map(mode, shortcut, command)
-  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = false })
-end
-
-local function nmap(shortcut, command)
-  map('n', shortcut, command)
-end
-
-local function imap (shortcut, command)
-  map('i', shortcut, command)
-end
-
-local function vmap (shortcut, command)
-  map('v', shortcut, command)
-end
+local u = require('utils')
+local nmap = u.nmap
+local vmap = u.vmap
+local imap = u.imap
 
 -- J and K to multiple navigate
 nmap('K', '5k')
