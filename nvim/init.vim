@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 " Plug 'romgrk/barbar.nvim'
 
-Plug 'kyazdani42/nvim-tree.lua'
+" Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-fugitive'
@@ -163,26 +163,26 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 
-" ========= nvim-tree
-lua <<EOF
-require("nvim-tree").setup{
-  diagnostics = {
-    enable = true,
-    show_on_dirs = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
-  },
-  view = {
-    adaptive_size = true,
-  },
-}
-EOF
-nnoremap <leader>E <cmd>NvimTreeFindFile<cr>
-nnoremap <leader>3 <cmd>NvimTreeToggle<cr>
+" " ========= nvim-tree
+" lua <<EOF
+" require("nvim-tree").setup{
+"   diagnostics = {
+"     enable = true,
+"     show_on_dirs = true,
+"     icons = {
+"       hint = "",
+"       info = "",
+"       warning = "",
+"       error = "",
+"     },
+"   },
+"   view = {
+"     adaptive_size = true,
+"   },
+" }
+" EOF
+" nnoremap <leader>E <cmd>NvimTreeFindFile<cr>
+" nnoremap <leader>3 <cmd>NvimTreeToggle<cr>
 
 " ======== searchhi ==============
 nmap n <Plug>(searchhi-n)
