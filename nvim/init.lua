@@ -1,4 +1,5 @@
-local u = require('utils')
+require('options')
+require('keybindings')
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -25,6 +26,8 @@ require('lazy').setup({
   require('plugins.airline'),
   require('plugins.hop'),
   require('plugins.diffview'),
+  require('plugins.searchhi'),
+  require('plugins.ale'),
   {
     'moll/vim-bbye',
     keys = {
@@ -64,10 +67,25 @@ require('lazy').setup({
       {'<C-o>', '<C-\\><C-n>', mode = 't'}
     }
   },
+  {
+    'fatih/vim-go',
+    build = ':GoInstallBinaries'
+  },
+  { 'pangloss/vim-javascript', ft = {'javascript', 'typescript'} },
+  {
+    'MaxMEllon/vim-jsx-pretty',
+    ft = {'javascriptreact', 'typescriptreact'},
+    config = function () vim.g.jsx_ext_required = 0 end,
+  },
+  { 'Vimjas/vim-python-pep8-indent', ft = 'python' },
+  { 'pedrohdz/vim-yaml-folds', ft = 'yaml' },
+  { 'ekalinin/Dockerfile.vim', ft = 'Dockerfile' },
   'tpope/vim-fugitive',
   'tpope/vim-endwise',
+  'tpope/vim-projectionist',
   'bronson/vim-trailing-whitespace',
   'godlygeek/tabular',
   'vim-scripts/surround.vim',
-  'mz026/vim-snippets'
+  'mz026/vim-snippets',
+  'hashivim/vim-terraform',
 })

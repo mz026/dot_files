@@ -10,7 +10,6 @@ return {
       colorscheme dracula_pro_morbius
 
       hi! link Folded DraculaOrangeItalic
-      let g:airline_theme = 'dracula_pro'
     ]]
   end
 }

@@ -39,8 +39,6 @@ vim.o.fillchars = "fold: "
 vim.o.exrc = true
 vim.o.secure = true
 
-
-
 -- Diff options
 vim.o.diffopt = vim.o.diffopt:gsub("internal,", "")
 vim.o.diffopt = vim.o.diffopt .. ",vertical"
@@ -64,3 +62,6 @@ hi def link jsFunctionKey Label
 
 -- Match highlight
 vim.cmd [[ highlight MatchParen cterm=underline ctermfg=none ctermbg=none ]]
+
+-- Turn off copilot by default
+vim.g.copilot_enabled = false

@@ -31,30 +31,30 @@ Plug 'tpope/vim-rails'
 " Plug 'kana/vim-textobj-user', { 'for': 'ruby' }
 " Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'dense-analysis/ale'
+" Plug 'ekalinin/Dockerfile.vim'
+" Plug 'pangloss/vim-javascript'
+" Plug 'MaxMEllon/vim-jsx-pretty'
+" Plug 'dense-analysis/ale'
 " Plug 'bronson/vim-trailing-whitespace'
 " Plug 'godlygeek/tabular'
 Plug 'elixir-lang/vim-elixir'
 " Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
-Plug 'qxxxb/vim-searchhi'
-Plug 'aliou/sql-heredoc.vim'
+" Plug 'qxxxb/vim-searchhi'
+" Plug 'aliou/sql-heredoc.vim' --> no use
 " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Plug 'antoinemadec/coc-fzf'
-Plug 'tpope/vim-projectionist'
-Plug 'pedrohdz/vim-yaml-folds'
+" Plug 'tpope/vim-projectionist'
+" Plug 'pedrohdz/vim-yaml-folds'
 " Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'Vimjas/vim-python-pep8-indent'
+" Plug 'Vimjas/vim-python-pep8-indent'
 " Plug 'ruanyl/vim-gh-line'
 " for diffview
 " Plug 'nvim-lua/plenary.nvim'
 " Plug 'sindrets/diffview.nvim'
-Plug 'hashivim/vim-terraform'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+" Plug 'hashivim/vim-terraform'
+" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " required for vim-markdown
 " Plug 'godlygeek/tabular'
@@ -125,17 +125,17 @@ EOF
 " let g:airline_theme = 'dracula_pro'
 
 " ========== ale linter ===========
-let g:ale_linters = {
-\   'ruby': ['ruby'],
-\   'typescript': ['eslint'],
-\   'sh': ['shellcheck']
-\}
-let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
-highlight ALEError ctermbg=none cterm=underline
-cmap AF ALEFix
+" let g:ale_linters = {
+" \   'ruby': ['ruby'],
+" \   'typescript': ['eslint'],
+" \   'sh': ['shellcheck']
+" \}
+" let g:ale_echo_msg_format = '[%linter%][%severity%] %s'
+" highlight ALEError ctermbg=none cterm=underline
+" cmap AF ALEFix
 
 " ========= jsx syntax ==================
-let g:jsx_ext_required = 0
+" let g:jsx_ext_required = 0
 
 " " ======== Argwrap ====================
 " nnoremap <silent> <leader>z :ArgWrap<CR>
@@ -185,26 +185,26 @@ let g:jsx_ext_required = 0
 " nnoremap <leader>3 <cmd>NvimTreeToggle<cr>
 
 " ======== searchhi ==============
-nmap n <Plug>(searchhi-n)
-nmap N <Plug>(searchhi-N)
-nmap * <Plug>(searchhi-*)
-nmap g* <Plug>(searchhi-g*)
-nmap # <Plug>(searchhi-#)
-nmap g# <Plug>(searchhi-g#)
-nmap gd <Plug>(searchhi-gd)
-nmap gD <Plug>(searchhi-gD)
+" nmap n <Plug>(searchhi-n)
+" nmap N <Plug>(searchhi-N)
+" nmap * <Plug>(searchhi-*)
+" nmap g* <Plug>(searchhi-g*)
+" nmap # <Plug>(searchhi-#)
+" nmap g# <Plug>(searchhi-g#)
+" nmap gd <Plug>(searchhi-gd)
+" nmap gD <Plug>(searchhi-gD)
 
-vmap n <Plug>(searchhi-v-n)
-vmap N <Plug>(searchhi-v-N)
-vmap * <Plug>(searchhi-v-*)
-vmap g* <Plug>(searchhi-v-g*)
-vmap # <Plug>(searchhi-v-#)
-vmap g# <Plug>(searchhi-v-g#)
-vmap gd <Plug>(searchhi-v-gd)
-vmap gD <Plug>(searchhi-v-gD)
+" vmap n <Plug>(searchhi-v-n)
+" vmap N <Plug>(searchhi-v-N)
+" vmap * <Plug>(searchhi-v-*)
+" vmap g* <Plug>(searchhi-v-g*)
+" vmap # <Plug>(searchhi-v-#)
+" vmap g# <Plug>(searchhi-v-g#)
+" vmap gd <Plug>(searchhi-v-gd)
+" vmap gD <Plug>(searchhi-v-gD)
 
-" ,/ to close search hilight
-nmap <leader>/ <Plug>(searchhi-clear-all)
+" " ,/ to close search hilight
+" nmap <leader>/ <Plug>(searchhi-clear-all)
 
 " <leader>0 to refresh vimrc
 nnoremap <silent><leader>0 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
@@ -364,7 +364,7 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 
 
 " vim-go, unmap K. The original mapping is to open godoc.
-let g:go_doc_keywordprg_enabled = 0
+" let g:go_doc_keywordprg_enabled = 0
 
 " Disable copilot by default
 let g:copilot_enabled = v:false

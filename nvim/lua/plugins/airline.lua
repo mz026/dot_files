@@ -12,5 +12,11 @@ return {
       ]]
     end
   },
-  {'vim-airline/vim-airline-themes'}
+  {
+    'vim-airline/vim-airline-themes',
+    dependencies = { 'git@github.com-mz:mz026/dracula-pro-vim.git' },
+    config = function ()
+      vim.g.airline_theme = 'dracula_pro'
+    end
+  }
 }
