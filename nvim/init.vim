@@ -5,8 +5,8 @@ filetype off                   " required!
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+" Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'romgrk/barbar.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
@@ -41,8 +41,8 @@ Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
 Plug 'qxxxb/vim-searchhi'
 Plug 'aliou/sql-heredoc.vim'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'antoinemadec/coc-fzf'
+" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'antoinemadec/coc-fzf'
 Plug 'tpope/vim-projectionist'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
@@ -64,6 +64,7 @@ call plug#end()
 lua <<EOF
 require('options')
 require('keybindings')
+require('settings')
 EOF
 
 "commentary alias, map ,c to ctrl_ctrl_
@@ -89,30 +90,30 @@ if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif
 
-" ===== FZF =================
-let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.85 }}
-let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-let rg_command = 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" --glob "!.git/*" '
+" " ===== FZF =================
+" let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.85 }}
+" let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+" let rg_command = 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" --glob "!.git/*" '
 
-command! -bang -nargs=? FF
-  \ call fzf#vim#files(
-  \ <q-args>,
-  \ fzf#vim#with_preview({'down': '40%'}), <bang>0)
+" command! -bang -nargs=? FF
+"   \ call fzf#vim#files(
+"   \ <q-args>,
+"   \ fzf#vim#with_preview({'down': '40%'}), <bang>0)
 
-command! -bang -nargs=* Find
-  \ call fzf#vim#grep(
-  \   rg_command.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview('up:50%'), <bang>0)
+" command! -bang -nargs=* Find
+"   \ call fzf#vim#grep(
+"   \   rg_command.shellescape(<q-args>), 1,
+"   \   fzf#vim#with_preview('up:50%'), <bang>0)
 
-command! -bang -nargs=* Findnt
-  \ call fzf#vim#grep(
-  \   rg_command.'--glob "!test[s]/" --glob "!spec[s]/" '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview('up:50%'), <bang>0)
+" command! -bang -nargs=* Findnt
+"   \ call fzf#vim#grep(
+"   \   rg_command.'--glob "!test[s]/" --glob "!spec[s]/" '.shellescape(<q-args>), 1,
+"   \   fzf#vim#with_preview('up:50%'), <bang>0)
 
-nmap <leader>f :Find <C-R><C-W><cr>
-nmap <leader>F :Findnt <C-R><C-W><cr>
-nmap <leader>t :FF<cr>
-nmap <leader>B :Buffers<cr>
+" nmap <leader>f :Find <C-R><C-W><cr>
+" nmap <leader>F :Findnt <C-R><C-W><cr>
+" nmap <leader>t :FF<cr>
+" nmap <leader>B :Buffers<cr>
 " ====== airline ================
 let g:airline#extensions#whitespace#checks = []
 
