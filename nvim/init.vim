@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'moll/vim-bbye'
+" Plug 'moll/vim-bbye'
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-endwise'
 Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
@@ -289,9 +289,9 @@ hi! link Folded DraculaOrangeItalic
 " local bufferline_state = require('bufferline.state')
 " EOF
 
-"===== bbye ============
-" close buffer by ,q
-:nnoremap <Leader>q :Bdelete<CR>
+""===== bbye ============
+"" close buffer by ,q
+":nnoremap <Leader>q :Bdelete<CR>
 
 " ==== hop ============
 lua <<EOF

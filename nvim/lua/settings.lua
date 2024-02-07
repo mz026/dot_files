@@ -19,6 +19,12 @@ require('lazy').setup({
   require('plugins.nvim-tree'),
   require('plugins.commentary'),
   require('plugins.coc'),
+  {
+    'moll/vim-bbye',
+    keys = {
+      {'<Leader>q', ':Bdelete<CR>'}
+    }
+  },
   'tpope/vim-fugitive',
   'tpope/vim-endwise',
 })
