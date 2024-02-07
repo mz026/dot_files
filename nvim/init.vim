@@ -62,7 +62,10 @@ Plug 'preservim/vim-markdown'
 call plug#end()
 
 source ~/.dot_files/nvim/options.vim
-source ~/.dot_files/nvim/keybindings.vim
+
+lua <<EOF
+require('keybindings')
+EOF
 
 "commentary alias, map ,c to ctrl_ctrl_
 nmap <leader>c gcc
