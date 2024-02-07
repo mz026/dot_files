@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'romgrk/barbar.nvim'
 
 " Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-lua/plenary.nvim'
 " Plug 'moll/vim-bbye'
 " Plug 'tpope/vim-fugitive'
 " Plug 'tpope/vim-endwise'
@@ -22,7 +22,7 @@ Plug 'smoka7/hop.nvim'
 " Plug 'mz026/vim-snippets'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-rails'
-Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'janko-m/vim-test'
@@ -38,7 +38,7 @@ Plug 'dense-analysis/ale'
 " Plug 'bronson/vim-trailing-whitespace'
 " Plug 'godlygeek/tabular'
 Plug 'elixir-lang/vim-elixir'
-Plug 'FooSoft/vim-argwrap'
+" Plug 'FooSoft/vim-argwrap'
 Plug 'tpope/vim-abolish'
 Plug 'qxxxb/vim-searchhi'
 Plug 'aliou/sql-heredoc.vim'
@@ -47,7 +47,7 @@ Plug 'aliou/sql-heredoc.vim'
 Plug 'tpope/vim-projectionist'
 Plug 'pedrohdz/vim-yaml-folds'
 " Plug 'git@github.com-mz:mz026/dracula-pro-vim.git'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'ruanyl/vim-gh-line'
 " for diffview
@@ -72,14 +72,14 @@ EOF
 "nmap <leader>c gcc
 "vmap <leader>c gc
 
-" ======= indent guide settings ==========
-lua <<EOF
-vim.opt.list = true
+" " ======= indent guide settings ==========
+" lua <<EOF
+" vim.opt.list = true
 
-require("indent_blankline").setup {
-    show_end_of_line = true,
-}
-EOF
+" require("indent_blankline").setup {
+"     show_end_of_line = true,
+" }
+" EOF
 
 " ====== vim-test ==================
 nmap <silent> <leader>x :TestNearest<CR>
@@ -137,30 +137,30 @@ cmap AF ALEFix
 " ========= jsx syntax ==================
 let g:jsx_ext_required = 0
 
-" ======== Argwrap ====================
-nnoremap <silent> <leader>z :ArgWrap<CR>
+" " ======== Argwrap ====================
+" nnoremap <silent> <leader>z :ArgWrap<CR>
 
-" ======== nvim-treesitter ====================
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "python",
-    "go",
-    "javascript",
-    "bash",
-    "sql",
-    "typescript"
-  },
+"" ======== nvim-treesitter ====================
+"lua <<EOF
+"require'nvim-treesitter.configs'.setup {
+"  ensure_installed = {
+"    "python",
+"    "go",
+"    "javascript",
+"    "bash",
+"    "sql",
+"    "typescript"
+"  },
 
-  highlight = {
-    enable = true,
-    disable = { "markdown", "md" },
-  },
-  indent = {
-    enable = true
-  },
-}
-EOF
+"  highlight = {
+"    enable = true,
+"    disable = { "markdown", "md" },
+"  },
+"  indent = {
+"    enable = true
+"  },
+"}
+"EOF
 
 
 " " ========= nvim-tree

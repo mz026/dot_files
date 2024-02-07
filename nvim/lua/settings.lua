@@ -21,6 +21,7 @@ require('lazy').setup({
   require('plugins.coc'),
   require('plugins.markdown'),
   require('plugins.colorscheme'),
+  require('plugins.treesitter'),
   {
     'moll/vim-bbye',
     keys = {
@@ -31,6 +32,18 @@ require('lazy').setup({
       'windwp/nvim-autopairs',
       event = "InsertEnter",
       opts = {} -- this is equalent to setup({}) function
+  },
+  {
+    'FooSoft/vim-argwrap',
+    lazy = false,
+    keys = {
+      {'<leader>z', ':ArgWrap<CR>'}
+    }
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {}
   },
   'tpope/vim-fugitive',
   'tpope/vim-endwise',
