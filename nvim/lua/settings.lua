@@ -22,6 +22,8 @@ require('lazy').setup({
   require('plugins.markdown'),
   require('plugins.colorscheme'),
   require('plugins.treesitter'),
+  require('plugins.airline'),
+  require('plugins.hop'),
   {
     'moll/vim-bbye',
     keys = {

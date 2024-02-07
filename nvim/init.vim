@@ -17,14 +17,14 @@ call plug#begin('~/.vim/plugged')
 " Plug 'tpope/vim-endwise'
 " Plug 'jiangmiao/auto-pairs', { 'commit': '8f4598b' }
 " Plug 'vim-scripts/surround.vim'
-Plug 'smoka7/hop.nvim'
+" Plug 'smoka7/hop.nvim'
 " Plug 'tpope/vim-commentary'
 " Plug 'mz026/vim-snippets'
 Plug 'vim-scripts/matchit.zip'
 Plug 'tpope/vim-rails'
 " Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'bling/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'janko-m/vim-test'
 
 " " rubyblock depends on textobj-user
@@ -115,14 +115,14 @@ endif
 " nmap <leader>F :Findnt <C-R><C-W><cr>
 " nmap <leader>t :FF<cr>
 " nmap <leader>B :Buffers<cr>
-" ====== airline ================
-let g:airline#extensions#whitespace#checks = []
+" " ====== airline ================
+" let g:airline#extensions#whitespace#checks = []
 
-" airline-powerline-chars
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_theme = 'dracula_pro'
+" " airline-powerline-chars
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+" let g:airline_theme = 'dracula_pro'
 
 " ========== ale linter ===========
 let g:ale_linters = {
@@ -293,25 +293,25 @@ nnoremap <silent><leader>0 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
 "" close buffer by ,q
 ":nnoremap <Leader>q :Bdelete<CR>
 
-" ==== hop ============
-lua <<EOF
-require'hop'.setup()
+" " ==== hop ============
+" lua <<EOF
+" require'hop'.setup()
 
--- place this in one of your configuration file(s)
-local hop = require('hop')
-local directions = require('hop.hint').HintDirection
-local hintPosition = require('hop.hint').HintPosition
+" -- place this in one of your configuration file(s)
+" local hop = require('hop')
+" local directions = require('hop.hint').HintDirection
+" local hintPosition = require('hop.hint').HintPosition
 
--- map <leader>e to "jump the the end of words"
-vim.keymap.set('', '<leader>e', function()
-  hop.hint_words({ direction = directions.AFTER_CURSOR, hint_position = hintPosition.END })
-end, {remap=true})
-EOF
+" -- map <leader>e to "jump the the end of words"
+" vim.keymap.set('', '<leader>e', function()
+"   hop.hint_words({ direction = directions.AFTER_CURSOR, hint_position = hintPosition.END })
+" end, {remap=true})
+" EOF
 
-nnoremap <leader>w <cmd>:HopWordAC<cr>
-nnoremap <leader>b <cmd>:HopWordBC<cr>
-nnoremap <leader>j <cmd>:HopLineAC<cr>
-nnoremap <leader>k <cmd>:HopLineBC<cr>
+" nnoremap <leader>w <cmd>:HopWordAC<cr>
+" nnoremap <leader>b <cmd>:HopWordBC<cr>
+" nnoremap <leader>j <cmd>:HopLineAC<cr>
+" nnoremap <leader>k <cmd>:HopLineBC<cr>
 
 
 " ===== coc-go ==========
