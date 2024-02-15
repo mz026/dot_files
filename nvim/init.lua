@@ -69,7 +69,8 @@ require('lazy').setup({
   },
   {
     'fatih/vim-go',
-    build = ':GoInstallBinaries'
+    build = ':GoInstallBinaries',
+    init = function () vim.g.go_doc_keywordprg_enabled = false end,
   },
   { 'pangloss/vim-javascript', ft = {'javascript', 'typescript'} },
   {
