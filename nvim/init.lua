@@ -59,13 +59,14 @@ require('lazy').setup({
     end
   },
   {
-    'janko-m/vim-test',
+    'vim-test/vim-test',
     keys = {
       {'<leader>x', ':TestNearest<CR>'},
       {'<leader>r', ':TestFile<CR>'},
       {'<leader>a', ':TestSuite<CR>'},
       {'<C-o>', '<C-\\><C-n>', mode = 't'}
-    }
+    },
+    init = function () vim.g['test#python#runner'] = 'pytest' end
   },
   {
     'fatih/vim-go',

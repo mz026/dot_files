@@ -15,7 +15,7 @@ return {
       },
 
       highlight = {
-        enable = true,
+        enabled = true,
         disable = { "markdown", "md" },
       },
       indent = {
