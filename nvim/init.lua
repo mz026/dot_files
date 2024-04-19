@@ -71,7 +71,11 @@ require('lazy').setup({
   {
     'fatih/vim-go',
     build = ':GoInstallBinaries',
-    init = function () vim.g.go_doc_keywordprg_enabled = false end,
+    init = function ()
+      vim.g.go_doc_keywordprg_enabled = false
+      vim.g.go_def_mapping_enabled = false
+    end,
+    ft = 'go'
   },
   { 'pangloss/vim-javascript', ft = {'javascript', 'typescript'} },
   {
@@ -88,6 +92,6 @@ require('lazy').setup({
   'bronson/vim-trailing-whitespace',
   'godlygeek/tabular',
   'vim-scripts/surround.vim',
-  'mz026/vim-snippets',
+  'honza/vim-snippets',
   'hashivim/vim-terraform',
 })

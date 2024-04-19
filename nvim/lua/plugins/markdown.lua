@@ -1,6 +1,7 @@
 return {
   'preservim/vim-markdown',
   dependencies = {'godlygeek/tabular'},
+  ft = 'markdown',
   config = function()
     vim.opt.conceallevel = 2
     vim.g.vim_markdown_conceal_code_blocks = 0
