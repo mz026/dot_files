@@ -73,7 +73,6 @@ require('lazy').setup({
     build = ':GoInstallBinaries',
     init = function ()
       vim.g.go_doc_keywordprg_enabled = false
-      vim.g.go_def_mapping_enabled = false
     end,
     ft = 'go'
   },
