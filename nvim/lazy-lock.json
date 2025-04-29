@@ -1,9 +1,9 @@
 {
   "Dockerfile.vim": { "branch": "master", "commit": "2a31e6bcea5977209c05c728c4253d82fd873c82" },
-  "ale": { "branch": "master", "commit": "adee52fba040428264aee956d99033572fc405a3" },
+  "ale": { "branch": "master", "commit": "a7ef1817b7aa06d0f80952ad530be87ad3c8f6e2" },
   "barbar.nvim": { "branch": "master", "commit": "88fe247ba6453b6ac422f26eb047acaac1a6000a" },
   "coc-fzf": { "branch": "master", "commit": "96490e570daf1c10679ac0b183ebf2ca1024b079" },
-  "coc.nvim": { "branch": "release", "commit": "ca6d569d0758ad58d5c3def72ac0e09545820991" },
+  "coc.nvim": { "branch": "release", "commit": "a8823eed914f89cdd3940ed9f5f62786e6d585c1" },
   "diffview.nvim": { "branch": "main", "commit": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f" },
   "dracula-pro-vim": { "branch": "master", "commit": "4dbc80a5629a34fc524e6c9dcdebaeae3a9a4aca" },
   "fzf.vim": { "branch": "master", "commit": "45d96c9cb1213204479593236dfabf911ff15443" },

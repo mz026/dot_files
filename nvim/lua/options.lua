@@ -65,3 +65,6 @@ vim.cmd [[ highlight MatchParen cterm=underline ctermfg=none ctermbg=none ]]
 
 -- Turn off copilot by default
 vim.g.copilot_enabled = false
+
+-- Turn off json conceal
+vim.g.json_conceal = false

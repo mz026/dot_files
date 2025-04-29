@@ -7,7 +7,7 @@ return {
 
       set t_Co=256
       let g:dracula_colorterm = 0
-      colorscheme dracula_pro_morbius
+      colorscheme dracula_pro
 
       hi! link Folded DraculaOrangeItalic
     ]]
