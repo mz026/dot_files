@@ -11,12 +11,12 @@ return {
         "sql",
         "typescript",
         "lua",
-        "vimdoc"
+        "vimdoc",
+        'markdown',
+        'markdown_inline'
       },
-
       highlight = {
-        enabled = true,
-        disable = { "markdown", "md" },
+        enable = true
       },
       indent = {
         enable = true
