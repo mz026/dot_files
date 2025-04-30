@@ -28,6 +28,7 @@ require('lazy').setup({
   require('plugins.diffview'),
   require('plugins.searchhi'),
   require('plugins.avante'),
+  require('plugins.aerial'),
   require('plugins.ale'),
   {
     'moll/vim-bbye',
