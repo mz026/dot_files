@@ -59,5 +59,14 @@ return {
         vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-k>"
       endif
     ]]
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "coctree",
+      callback = function()
+        vim.defer_fn(function()
+          vim.cmd("vertical resize 90")
+        end, 0)
+      end,
+    })
   end
 }

@@ -20,7 +20,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Fold settings
 vim.o.foldmethod = "expr"
+-- vim.o.foldexpr = vim.treesitter.foldexpr()
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+    -- set foldmethod=expr
+    -- set foldexpr=v:lua.vim.treesitter.foldexpr()
 
 -- Custom fold text
 vim.cmd [[

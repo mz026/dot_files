@@ -29,7 +29,7 @@ require('lazy').setup({
   require('plugins.searchhi'),
   require('plugins.avante'),
   require('plugins.aerial'),
-  require('plugins.ale'),
+  -- require('plugins.ale'),
   {
     'moll/vim-bbye',
     keys = {
