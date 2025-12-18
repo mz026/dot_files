@@ -25,11 +25,12 @@ require('lazy').setup({
   require('plugins.treesitter'),
   require('plugins.airline'),
   require('plugins.hop'),
-  require('plugins.diffview'),
+  -- require('plugins.diffview'),
   require('plugins.searchhi'),
-  require('plugins.avante'),
+  -- require('plugins.avante'),
   require('plugins.aerial'),
   -- require('plugins.ale'),
+  require('plugins.git-conflict'),
   {
     'moll/vim-bbye',
     keys = {
@@ -94,13 +95,4 @@ require('lazy').setup({
   'vim-scripts/surround.vim',
   'honza/vim-snippets',
   'hashivim/vim-terraform',
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({})
-    end,
-  }
-  -- 'github/copilot.vim',
 })
