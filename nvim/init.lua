@@ -69,13 +69,6 @@ require('lazy').setup({
     },
     init = function () vim.g['test#python#runner'] = 'pytest' end
   },
-  {
-    'fatih/vim-go',
-    build = ':GoInstallBinaries',
-    init = function ()
-      vim.g.go_doc_keywordprg_enabled = false
-    end,
-  },
   { 'pangloss/vim-javascript', ft = {'javascript', 'typescript'} },
   {
     'MaxMEllon/vim-jsx-pretty',

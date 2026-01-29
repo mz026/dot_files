@@ -39,7 +39,7 @@
     "go"
   ],
   "go.goplsOptions": {
-    "buildFlags": ["-tags=mage"]
+    "buildFlags": ["-tags=mage,integration"]
   },
   "sumneko-lua.enableNvimLuaDev": true,
   "python.linting.mypyEnabled": true
