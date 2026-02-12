@@ -1,5 +1,5 @@
 return {
-  'git@github.com-mz:mz026/dracula-pro-vim.git',
+  'git@github.com:mz026/dracula-pro-vim.git',
   config = function()
     vim.cmd [[
       syntax enable
