@@ -8,7 +8,8 @@ return {
         \ 'coc-tsserver',
         \ 'coc-pyright',
         \ 'coc-sumneko-lua',
-        \ 'coc-snippets'
+        \ 'coc-snippets',
+        \ 'coc-go'
       \]
 
       nmap <silent> [g <Plug>(coc-diagnostic-prev)

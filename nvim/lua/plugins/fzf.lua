@@ -3,7 +3,6 @@ local u = require('utils')
 return {
   {
     "junegunn/fzf",
-    dir = "~/.fzf",
     build = "./install --all"
   },
   {
