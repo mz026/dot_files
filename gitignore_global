@@ -5,3 +5,8 @@ _todo*
 _note*
 .projections.json
 .vim
+.claude/settings.local.json
+
+.beads
+dolt/
+*.db

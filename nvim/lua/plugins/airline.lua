@@ -15,7 +15,7 @@ return {
   {
     'vim-airline/vim-airline-themes',
     dependencies = { 'git@github.com:mz026/dracula-pro-vim.git' },
-    init = function ()
+    config = function ()
       vim.g.airline_theme = 'dracula_pro'
     end
   }
