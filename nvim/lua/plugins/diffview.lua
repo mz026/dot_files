@@ -35,7 +35,7 @@ return {
       },
     }
 
-    u.cmap('GD', 'DiffviewOpen')
+    u.cmap('GD', 'DiffviewOpen master...HEAD')
     u.cmap('GC', 'DiffviewClose')
     u.cmap('GF', 'DiffviewFileHistory')
   end

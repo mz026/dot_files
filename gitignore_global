@@ -10,3 +10,5 @@ _note*
 .beads
 dolt/
 *.db
+
+**/.claude/settings.local.json

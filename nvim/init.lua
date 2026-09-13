@@ -29,6 +29,7 @@ require('lazy').setup({
   require('plugins.searchhi'),
   require('plugins.aerial'),
   require('plugins.git-conflict'),
+  require('plugins.gitsigns'),
   {
     'moll/vim-bbye',
     keys = {
