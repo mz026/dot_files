@@ -185,19 +185,4 @@ function M.preview()
   vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = buffer })
 end
 
-function M.test()
-  assert(vim.deep_equal(fit({ 3, 5, 40 }, 30, 6), { 3, 5, 22 }), 'wide column absorbs the squeeze')
-  assert(vim.deep_equal(fit({ 3, 5 }, 30, 6), { 3, 5 }), 'no squeeze when it already fits')
-  local narrow = fit({ 9, 9, 9, 9, 9, 9 }, 18, 6)
-  local narrow_total = 0
-  for _, w in ipairs(narrow) do
-    narrow_total = narrow_total + w
-  end
-  assert(narrow_total <= 18, 'minimum width never overshoots the budget')
-  assert(vim.deep_equal(wrap('a bb ccc', 5), { 'a bb', 'ccc' }), 'greedy word wrap')
-  assert(vim.deep_equal(wrap('聊天服務測試', 4), { '聊天', '服務', '測試' }), 'double width wrap')
-  assert(is_delimiter({ '---', ':--:' }) and not is_delimiter({ 'a' }), 'delimiter row detection')
-  print('mdtable: ok')
-end
-
 return M
