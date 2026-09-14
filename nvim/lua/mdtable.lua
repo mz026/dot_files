@@ -177,7 +177,7 @@ function M.preview()
     height = height,
     row = math.floor((vim.o.lines - height) / 2),
     col = math.floor((vim.o.columns - available) / 2),
-    border = 'rounded',
+    border = 'none',
   })
   vim.wo[window].wrap = false
   vim.wo[window].number = false
