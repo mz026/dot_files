@@ -116,7 +116,7 @@ local function render(rows, available)
   local widths = fit(natural, available - (3 * columns + 1), 6)
   local separator = rule(widths, '├', '┼', '┤')
 
-  local out = { rule(widths, '┌', '┬', '┐') }
+  local out, header = { rule(widths, '┌', '┬', '┐') }, {}
   for index, row in ipairs(rows) do
     local wrapped, height = {}, 0
     for i = 1, columns do
@@ -128,12 +128,16 @@ local function render(rows, available)
       for i = 1, columns do
         local text = wrapped[i][line] or ''
         parts[i] = ' ' .. text .. string.rep(' ', widths[i] - width(text)) .. ' '
+        if index == 1 and text ~= '' then
+          local start = #'│' * i + #table.concat(parts, '', 1, i - 1) + 1
+          header[#header + 1] = { #out, start, start + #text }
+        end
       end
       out[#out + 1] = '│' .. table.concat(parts, '│') .. '│'
     end
     out[#out + 1] = index < #rows and separator or rule(widths, '└', '┴', '┘')
   end
-  return out
+  return out, header
 end
 
 local function table_at_cursor()
@@ -166,9 +170,13 @@ function M.preview()
     return
   end
   local available = math.floor(vim.o.columns * 0.9)
-  local lines = render(rows, available)
+  local lines, header = render(rows, available)
   local buffer = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buffer, 0, -1, false, lines)
+  local namespace = vim.api.nvim_create_namespace('mdtable')
+  for _, mark in ipairs(header) do
+    vim.api.nvim_buf_set_extmark(buffer, namespace, mark[1], mark[2], { end_col = mark[3], hl_group = 'Title' })
+  end
   vim.bo[buffer].modifiable = false
   local height = math.min(#lines, vim.o.lines - 6)
   local window = vim.api.nvim_open_win(buffer, true, {
