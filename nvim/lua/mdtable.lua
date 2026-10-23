@@ -178,6 +178,7 @@ function M.preview()
     vim.api.nvim_buf_set_extmark(buffer, namespace, mark[1], mark[2], { end_col = mark[3], hl_group = 'Title' })
   end
   vim.bo[buffer].modifiable = false
+  pcall(vim.treesitter.start, buffer, 'markdown')
   local height = math.min(#lines, vim.o.lines - 6)
   local window = vim.api.nvim_open_win(buffer, true, {
     relative = 'editor',
@@ -190,6 +191,7 @@ function M.preview()
   vim.wo[window].wrap = false
   vim.wo[window].number = false
   vim.wo[window].signcolumn = 'no'
+  vim.wo[window].conceallevel = 0
   vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = buffer })
 end
 
